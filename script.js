@@ -59,32 +59,31 @@ startButton.addEventListener("click",()=>{
 
 });
 
-continueJourney.addEventListener("click",()=>{
-
-    showScreen(quizScreen); currentQuestion=0;
-loadQuestion(); nextQuestion.addEventListener("click",()=>{
-
-    currentQuestion++;
-
-    if(currentQuestion<quizData.length){
-continueJourney.addEventListener("click",()=>{
+continueJourney.addEventListener("click", () => {
 
     showScreen(quizScreen);
 
-    currentQuestion=0;
+    currentQuestion = 0;
 
     loadQuestion();
 
-
-
 });
 
-});
-});
+nextQuestion.addEventListener("click", () => {
 
-}); const quizData = [
+    currentQuestion++;
 
-{
+    if(currentQuestion < quizData.length){
+
+        loadQuestion();
+
+    }else{
+
+        showScreen(phoneScreen);
+
+    }
+
+});{
     question:"Who is the most beautiful girl? ❤️",
     answers:["Diksha ❤️","Someone Else","Nobody","Don't Know"],
     correct:0

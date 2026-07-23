@@ -8,8 +8,10 @@ setTimeout(() => {
 
 },3000);
 
-document.getElementById("startBtn").addEventListener("click",()=>{
+document.getElementById("continueBtn").addEventListener("click",()=>{
 
-    alert("Perfect! The next step will open the Romantic Quiz ❤️");
+    document.getElementById("introScreen").classList.remove("active");
+
+    document.getElementById("quizScreen").classList.add("active");
 
 });

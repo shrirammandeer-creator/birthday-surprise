@@ -684,3 +684,219 @@ setInterval(()=>{
     }
 
 },4000);
+/*==================================================
+      SCRIPT.JS - PART 3B
+      Cake • Gift • Letter
+==================================================*/
+
+/* -----------------------
+      CAKE ANIMATION
+----------------------- */
+
+const cake = document.querySelector(".cake");
+
+let cakeCut = false;
+
+if(cake){
+
+cake.addEventListener("click",()=>{
+
+if(cakeCut) return;
+
+cakeCut = true;
+
+cake.innerHTML="🍰";
+
+cake.style.transform="scale(1.2) rotate(-8deg)";
+
+replyBox.innerHTML="🎉 Happy Birthday Diksha ❤️";
+
+setTimeout(()=>{
+
+replyBox.innerHTML="";
+
+},2000);
+
+launchConfetti();
+
+});
+
+}
+
+/* -----------------------
+      GIFT BUTTON
+----------------------- */
+
+giftBtn.addEventListener("click",()=>{
+
+showScreen(screens.gift);
+
+animateGift();
+
+});
+
+/* -----------------------
+      GIFT ANIMATION
+----------------------- */
+
+const gift = document.querySelector(".gift");
+
+function animateGift(){
+
+if(!gift) return;
+
+gift.classList.add("giftBounce");
+
+}
+
+/* -----------------------
+      OPEN GIFT
+----------------------- */
+
+if(gift){
+
+gift.addEventListener("click",()=>{
+
+gift.innerHTML="💖";
+
+gift.style.transform="scale(1.3) rotate(15deg)";
+
+gift.style.transition=".6s";
+
+launchConfetti();
+
+});
+
+}
+
+/* -----------------------
+      LETTER BUTTON
+----------------------- */
+
+letterBtn.addEventListener("click",()=>{
+
+showScreen(screens.letter);
+
+startLetter();
+
+});
+
+/* -----------------------
+      LOVE LETTER
+----------------------- */
+
+const message=
+
+`My Dearest Diksha ❤️
+
+Happy Birthday to the most beautiful person in my life.
+
+Every smile of yours makes my day brighter.
+
+Every moment with you becomes a beautiful memory.
+
+I hope today brings you endless happiness,
+lots of laughter,
+good health,
+and all your dreams come true.
+
+Thank you for being so special.
+
+May this year fill your life with success,
+peace,
+love,
+and countless beautiful memories.
+
+Always keep smiling...
+
+Because your smile is my favorite.
+
+❤️ Happy Birthday Once Again ❤️
+
+With Lots of Love ❤️`;
+
+const letterText=document.getElementById("letterText");
+
+let index=0;
+
+/* -----------------------
+      TYPEWRITER
+----------------------- */
+
+function startLetter(){
+
+letterText.innerHTML="";
+
+index=0;
+
+typeLetter();
+
+}
+
+function typeLetter(){
+
+if(index<message.length){
+
+letterText.innerHTML+=message.charAt(index);
+
+index++;
+
+setTimeout(typeLetter,35);
+
+}
+
+}
+
+/* -----------------------
+      FINISH BUTTON
+----------------------- */
+
+fireworkBtn.addEventListener("click",()=>{
+
+showScreen(screens.final);
+
+startFireworks();
+
+});
+
+/* -----------------------
+      HEART BURST
+----------------------- */
+
+function heartBurst(){
+
+for(let i=0;i<30;i++){
+
+const heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.className="heartBurst";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top=Math.random()*100+"vh";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},4000);
+
+}
+
+}
+
+setInterval(()=>{
+
+if(screens.letter.classList.contains("active")){
+
+heartBurst();
+
+}
+
+},3500);

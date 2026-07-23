@@ -540,7 +540,7 @@ function stopPhoneAnimation(){
 
 function openPhoneScreen(){
 
-    showScreen(screens.phone);
+    showScreen(screens.phone)
 
     startPhoneAnimation();
 

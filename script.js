@@ -2,6 +2,9 @@
 // SCREEN REFERENCES
 // =========================
 
+const phoneScreen = document.getElementById("phoneScreen");
+const acceptCall = document.getElementById("acceptCall");
+const declineCall = document.getElementById("declineCall");
 const quizScreen = document.getElementById("quizScreen");
 const nextQuestion = document.getElementById("nextQuestion");
 const loadingScreen = document.getElementById("loadingScreen");

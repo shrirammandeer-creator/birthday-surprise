@@ -900,3 +900,293 @@ heartBurst();
 }
 
 },3500);
+/*==================================================
+      SCRIPT.JS - PART 3C
+      Fireworks • Ending • Restart
+==================================================*/
+
+/* -----------------------
+      FIREWORKS
+----------------------- */
+
+const fireworksContainer =
+document.getElementById("fireworks");
+
+function createFirework(){
+
+    const firework =
+    document.createElement("div");
+
+    firework.className="firework";
+
+    firework.style.left=
+    Math.random()*100+"vw";
+
+    firework.style.top=
+    (10+Math.random()*60)+"vh";
+
+    fireworksContainer.appendChild(firework);
+
+    for(let i=0;i<25;i++){
+
+        const particle=
+        document.createElement("span");
+
+        particle.className="particle";
+
+        particle.style.setProperty(
+        "--x",
+        (Math.random()-0.5)*250+"px");
+
+        particle.style.setProperty(
+        "--y",
+        (Math.random()-0.5)*250+"px");
+
+        particle.style.animationDelay=
+        Math.random()*0.3+"s";
+
+        firework.appendChild(particle);
+
+    }
+
+    setTimeout(()=>{
+
+        firework.remove();
+
+    },2500);
+
+}
+
+/* -----------------------
+      START FIREWORKS
+----------------------- */
+
+let fireworkInterval;
+
+function startFireworks(){
+
+    createFirework();
+
+    fireworkInterval=setInterval(()=>{
+
+        createFirework();
+
+    },800);
+
+}
+
+/* -----------------------
+      STOP FIREWORKS
+----------------------- */
+
+function stopFireworks(){
+
+    clearInterval(fireworkInterval);
+
+}
+
+/* -----------------------
+      HEART RAIN
+----------------------- */
+
+function startHeartRain(){
+
+    const interval=setInterval(()=>{
+
+        if(!screens.final.classList.contains("active")){
+
+            clearInterval(interval);
+
+            return;
+
+        }
+
+        const heart=document.createElement("div");
+
+        heart.className="heartRain";
+
+        heart.innerHTML="❤️";
+
+        heart.style.left=Math.random()*100+"vw";
+
+        heart.style.fontSize=
+        (18+Math.random()*35)+"px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },6000);
+
+    },300);
+
+}
+
+/* -----------------------
+      STAR SHOWER
+----------------------- */
+
+function startStars(){
+
+    const interval=setInterval(()=>{
+
+        if(!screens.final.classList.contains("active")){
+
+            clearInterval(interval);
+
+            return;
+
+        }
+
+        const star=document.createElement("div");
+
+        star.className="starParticle";
+
+        star.innerHTML="✨";
+
+        star.style.left=Math.random()*100+"vw";
+
+        star.style.top="-50px";
+
+        document.body.appendChild(star);
+
+        setTimeout(()=>{
+
+            star.remove();
+
+        },5000);
+
+    },350);
+
+}
+
+/* -----------------------
+      ROSE PETALS
+----------------------- */
+
+function roseRain(){
+
+    const interval=setInterval(()=>{
+
+        if(!screens.final.classList.contains("active")){
+
+            clearInterval(interval);
+
+            return;
+
+        }
+
+        const rose=document.createElement("div");
+
+        rose.className="roseRain";
+
+        rose.innerHTML="🌹";
+
+        rose.style.left=Math.random()*100+"vw";
+
+        document.body.appendChild(rose);
+
+        setTimeout(()=>{
+
+            rose.remove();
+
+        },7000);
+
+    },450);
+
+}
+
+/* -----------------------
+      FINAL MESSAGE
+----------------------- */
+
+const finalMessage=document.querySelector("#finalScreen p");
+
+const extraText=`
+
+❤️
+
+I wish every day of your life
+is filled with happiness,
+success,
+good health,
+beautiful memories
+and endless smiles.
+
+You deserve every happiness
+in this world.
+
+Happy Birthday My Dear Diksha ❤️`;
+
+if(finalMessage){
+
+finalMessage.innerHTML+=extraText;
+
+}
+
+/* -----------------------
+      START FINAL EFFECTS
+----------------------- */
+
+function launchFinalEffects(){
+
+    startFireworks();
+
+    startHeartRain();
+
+    startStars();
+
+    roseRain();
+
+}
+
+/* -----------------------
+      UPDATE FINISH BUTTON
+----------------------- */
+
+fireworkBtn.addEventListener("click",()=>{
+
+    showScreen(screens.final);
+
+    launchFinalEffects();
+
+});
+
+/* -----------------------
+      RESTART
+----------------------- */
+
+const restart=document.createElement("button");
+
+restart.innerHTML="❤️ Replay Surprise";
+
+restart.style.marginTop="35px";
+
+restart.onclick=()=>{
+
+    stopFireworks();
+
+    location.reload();
+
+};
+
+document.querySelector("#finalScreen .glass")
+.appendChild(restart);
+
+/* -----------------------
+      AUTO MUSIC
+----------------------- */
+
+document.addEventListener("click",()=>{
+
+    bgMusic.play().catch(()=>{});
+
+},{once:true});
+
+/* -----------------------
+      END
+----------------------- */
+
+console.log("❤️ Happy Birthday Diksha Website Loaded Successfully ❤️");

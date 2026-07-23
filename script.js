@@ -147,12 +147,11 @@ let currentQuestion = 0; function loadQuestion(){
 
 const questionText = document.getElementById("questionText");
 const questionNumber = document.getElementById("questionNumber");
-const options = document.getElementById("options"); acceptCall.addEventListener("click",()=>{
+const options = document.getElementById("options");acceptCall.addEventListener("click",()=>{
 
-    alert("❤️ Happy Birthday Diksha ❤️");
+    showScreen(birthdayScreen);
 
 });
-
 declineCall.addEventListener("click",()=>{
 
     alert("😂 Sorry! You have to accept the call.");

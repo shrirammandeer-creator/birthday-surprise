@@ -1,25 +1,81 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
 
-margin:0;
+    height:100vh;
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-align-items:center;
+    align-items:center;
 
-height:100vh;
+    background:linear-gradient(135deg,#ff4d88,#7b2ff7);
 
-background:#ff4d88;
+    font-family:Arial,sans-serif;
 
-color:white;
+    color:white;
 
-font-family:Arial,sans-serif;
+}
+
+#loadingScreen{
+
+    text-align:center;
+
+}
+
+.loader{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    border:8px solid rgba(255,255,255,.25);
+
+    border-top:8px solid white;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
 
 }
 
 h1{
 
-font-size:60px;
+    margin-top:30px;
+
+    font-size:40px;
+
+}
+
+p{
+
+    margin-top:10px;
+
+    font-size:20px;
+
+    opacity:.9;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
 
 }

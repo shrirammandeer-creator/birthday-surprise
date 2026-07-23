@@ -489,3 +489,198 @@ declineCall.addEventListener("click",()=>{
     alert("No no 😄... You have to answer the birthday call!");
 
 });
+/*==================================================
+    SCRIPT.JS - PART 3A
+    Phone Call + Birthday Screen + Balloons
+==================================================*/
+
+/* -----------------------
+   PHONE RINGTONE
+----------------------- */
+
+const ringtone = new Audio(
+    "assets/music/ringtone.mp3"
+);
+
+ringtone.loop = true;
+
+/* -----------------------
+   PHONE VIBRATION
+----------------------- */
+
+function startPhoneAnimation(){
+
+    ringtone.play().catch(()=>{});
+
+    const phone = document.querySelector(".phone");
+
+    phone.classList.add("ringing");
+
+}
+
+/* -----------------------
+   STOP PHONE
+----------------------- */
+
+function stopPhoneAnimation(){
+
+    ringtone.pause();
+
+    ringtone.currentTime = 0;
+
+    const phone = document.querySelector(".phone");
+
+    phone.classList.remove("ringing");
+
+}
+
+/* -----------------------
+   OPEN PHONE SCREEN
+----------------------- */
+
+function openPhoneScreen(){
+
+    showScreen(screens.phone);
+
+    startPhoneAnimation();
+
+}
+
+/* -----------------------
+   UPDATE QUIZ END
+----------------------- */
+
+/* Replace this line inside selectAnswer()
+
+showScreen(screens.phone);
+
+WITH
+
+openPhoneScreen();
+
+*/
+
+/* -----------------------
+   ACCEPT CALL
+----------------------- */
+
+acceptCall.addEventListener("click",()=>{
+
+    stopPhoneAnimation();
+
+    showScreen(screens.birthday);
+
+    launchBalloons();
+
+});
+
+/* -----------------------
+   DECLINE CALL
+----------------------- */
+
+declineCall.addEventListener("click",()=>{
+
+    alert("😂 Nice try!\nYou must answer my birthday call ❤️");
+
+});
+
+/* -----------------------
+   BALLOONS
+----------------------- */
+
+function launchBalloons(){
+
+    for(let i=0;i<25;i++){
+
+        createBalloon();
+
+    }
+
+}
+
+/* -----------------------
+   CREATE BALLOON
+----------------------- */
+
+function createBalloon(){
+
+    const balloon=document.createElement("div");
+
+    balloon.className="balloon";
+
+    balloon.innerHTML="🎈";
+
+    balloon.style.left=Math.random()*100+"vw";
+
+    balloon.style.fontSize=(30+Math.random()*35)+"px";
+
+    balloon.style.animationDuration=
+        (6+Math.random()*5)+"s";
+
+    document.body.appendChild(balloon);
+
+    setTimeout(()=>{
+
+        balloon.remove();
+
+    },12000);
+
+}
+
+/* -----------------------
+   BIRTHDAY BUTTON
+----------------------- */
+
+cakeBtn.addEventListener("click",()=>{
+
+    showScreen(screens.cake);
+
+});
+
+/* -----------------------
+   CONFETTI
+----------------------- */
+
+function launchConfetti(){
+
+    for(let i=0;i<100;i++){
+
+        const piece=document.createElement("div");
+
+        piece.className="confetti";
+
+        piece.style.left=Math.random()*100+"vw";
+
+        piece.style.animationDuration=
+            (3+Math.random()*3)+"s";
+
+        piece.style.transform=
+            `rotate(${Math.random()*360}deg)`;
+
+        document.body.appendChild(piece);
+
+        setTimeout(()=>{
+
+            piece.remove();
+
+        },6000);
+
+    }
+
+}
+
+/* -----------------------
+   AUTO CONFETTI
+----------------------- */
+
+setInterval(()=>{
+
+    if(
+        screens.birthday.classList.contains("active")
+    ){
+
+        launchConfetti();
+
+    }
+
+},4000);

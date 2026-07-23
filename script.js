@@ -54,9 +54,25 @@ startButton.addEventListener("click",()=>{
 
 continueJourney.addEventListener("click",()=>{
 
-    showScreen(quizScreen); nextQuestion.addEventListener("click",()=>{
+    showScreen(quizScreen); currentQuestion=0;
+loadQuestion(); nextQuestion.addEventListener("click",()=>{
 
-    alert("🎉 Quiz Working!");
+    currentQuestion++;
+
+    if(currentQuestion<quizData.length){
+continueJourney.addEventListener("click",()=>{
+
+    showScreen(quizScreen);
+
+    currentQuestion=0;
+
+    loadQuestion();
+
+}); else{
+
+        alert("🎉 Quiz Completed!");
+
+    }
 
 });
 
@@ -85,7 +101,44 @@ continueJourney.addEventListener("click",()=>{
 
 ];
 
-let currentQuestion = 0;
+let currentQuestion = 0; function loadQuestion(){
+
+    let q = quizData[currentQuestion];
+
+    questionNumber.innerHTML =
+    `Question ${currentQuestion+1} of ${quizData.length}`;
+
+    questionText.innerHTML = q.question;
+
+    options.innerHTML = "";
+
+    q.answers.forEach((answer,index)=>{
+
+        let btn = document.createElement("button");
+
+        btn.className="option";
+
+        btn.innerHTML=answer;
+
+        btn.onclick=()=>checkAnswer(index);
+
+        options.appendChild(btn);
+
+    });
+ 
+} function checkAnswer(index){
+
+    if(index===quizData[currentQuestion].correct){
+
+        alert("❤️ Correct!");
+
+    }else{
+
+        alert("😊 Nice Try!");
+
+    }
+
+} 
 
 const questionText = document.getElementById("questionText");
 const questionNumber = document.getElementById("questionNumber");

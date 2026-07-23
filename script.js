@@ -176,7 +176,9 @@ declineCall.addEventListener("click",()=>{
 
     alert("😂 Sorry! You have to accept the call.");
 
-}); cakeBtn.addEventListener("click",()=>{
+});
+
+cakeBtn.addEventListener("click",()=>{
 
     cake.classList.add("cutCake");
 

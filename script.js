@@ -7,7 +7,9 @@ const cakeMessage = document.getElementById("cakeMessage");
 const birthdayScreen = document.getElementById("birthdayScreen");
 const cakeBtn = document.getElementById("cakeBtn");
 const phoneScreen = document.getElementById("phoneScreen");
-const acceptCall = document.getElementById("acceptCall");
+const options = document.getElementById("options");
+
+acceptCall.addEventListener("click",()=>{
 const declineCall = document.getElementById("declineCall");
 const quizScreen = document.getElementById("quizScreen");
 const nextQuestion = document.getElementById("nextQuestion");

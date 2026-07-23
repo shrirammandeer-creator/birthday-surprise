@@ -149,3 +149,75 @@ p{
     transform:scale(1.08);
 
 }
+.welcome-card{
+
+    width:90%;
+    max-width:700px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    padding:50px;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+
+}
+
+.welcome-card h1{
+
+    font-size:52px;
+
+    margin-bottom:15px;
+
+}
+
+.welcome-card h2{
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+    color:#ffe8f1;
+
+}
+
+.welcome-card p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+#startBtn{
+
+    background:white;
+
+    color:#ff2d75;
+
+    font-size:22px;
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#startBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 10px 25px rgba(255,255,255,.4);
+
+}

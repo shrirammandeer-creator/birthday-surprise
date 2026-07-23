@@ -299,9 +299,85 @@ overflow:hidden;
 
 }
 
-#hearts::before{
+#hearts{
 
-content:"💖 💕 ❤️ 💗 💞 💓";
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+
+}
+
+.heart{
+
+position:absolute;
+
+width:18px;
+height:18px;
+
+background:#ff4d88;
+
+transform:rotate(45deg);
+
+opacity:.8;
+
+animation:heartFloat linear forwards;
+
+}
+
+.heart:before,
+.heart:after{
+
+content:"";
+
+position:absolute;
+
+width:18px;
+height:18px;
+
+background:#ff4d88;
+
+border-radius:50%;
+
+}
+
+.heart:before{
+
+left:-9px;
+
+}
+
+.heart:after{
+
+top:-9px;
+
+}
+
+@keyframes heartFloat{
+
+0%{
+
+transform:translateY(100vh) rotate(45deg) scale(.5);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:.8;
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(405deg) scale(1.4);
+
+opacity:0;
+
+}
+
+}
 
 position:absolute;
 

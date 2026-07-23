@@ -262,4 +262,32 @@ width:100%;
 
 margin-top:25px;
 
+} /* ===========================
+PHONE SCREEN
+=========================== */
+
+.phoneButtons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:30px;
+
+flex-wrap:wrap;
+
+}
+
+#acceptCall{
+
+background:#28a745;
+
+}
+
+#declineCall{
+
+background:#dc3545;
+
 }

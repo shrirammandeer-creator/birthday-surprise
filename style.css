@@ -470,3 +470,139 @@ transform:translateX(160vw);
 }
 
 }
+/*==========================
+WELCOME CARD
+==========================*/
+
+.welcomeCard{
+
+width:700px;
+max-width:90%;
+text-align:center;
+
+animation:welcomeFloat 5s ease-in-out infinite;
+
+}
+
+@keyframes welcomeFloat{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+.loveCircle{
+
+width:130px;
+height:130px;
+
+margin:auto;
+margin-bottom:30px;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:70px;
+
+background:linear-gradient(135deg,#ff4d88,#ff99cc);
+
+box-shadow:
+
+0 0 30px rgba(255,0,100,.5),
+0 0 60px rgba(255,0,100,.3);
+
+animation:pulseHeart 2s infinite;
+
+}
+
+@keyframes pulseHeart{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.1);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+.welcomeCard h1{
+
+font-size:70px;
+
+margin-top:15px;
+
+}
+
+.welcomeCard h2{
+
+font-size:42px;
+
+margin-bottom:20px;
+
+color:#ffd6ea;
+
+}
+
+.welcomeCard p{
+
+font-size:22px;
+
+line-height:1.8;
+
+margin:30px 0;
+
+}
+
+#startJourney{
+
+font-size:22px;
+
+padding:18px 55px;
+
+border-radius:60px;
+
+background:linear-gradient(45deg,#ff2d75,#ff6fa5);
+
+transition:.4s;
+
+}
+
+#startJourney:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+
+0 0 40px rgba(255,70,130,.6);
+
+}

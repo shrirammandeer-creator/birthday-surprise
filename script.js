@@ -32,7 +32,19 @@ document.body.innerHTML = `
 
 <div class="quiz">
 
-<h1>Question ${current+1} of ${questions.length}</h1>
+<div class="progressBox">
+
+<div class="progress">
+
+<div class="fill" style="width:${((current+1)/questions.length)*100}%"></div>
+
+</div>
+
+<p>${current+1} / ${questions.length}</p>
+
+</div>
+
+<h1>❤️ Love Journey ❤️</h1>
 
 <p>${questions[current]}</p>
 

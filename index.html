@@ -1,76 +1,315 @@
-<div id="loadingScreen" class="screen active">
+<body>
 
-    <div class="loader"></div>
+    <!-- =========================
+         Loading Screen
+    ========================== -->
+    <section id="loadingScreen" class="screen active">
 
-    <h1>Preparing Your Surprise ❤️</h1>
+        <div class="loaderBox">
 
-    <p>Please wait...</p>
+            <div class="loader"></div>
 
-</div>
+            <h1>Preparing Your Surprise ❤️</h1>
 
+            <p>Please wait...</p>
 
-<div id="welcomeScreen" class="screen">
+        </div>
 
-    <div class="welcome-card">
-
-        <h1>🎉 Happy Birthday Diksha ❤️</h1>
-
-        <h2>My Beautiful Princess 💖</h2>
-
-        <p>
-            Every moment with you is my favorite memory.<br>
-            Today isn't just your birthday—it's a celebration of the most amazing person in my life.
-        </p>
-
-        <button id="startBtn">
-            Begin Our Journey ❤️
-        </button>
-
-    </div>
-
-</div>
+    </section>
 
 
-<div id="introScreen" class="screen">
+    <!-- =========================
+         Welcome Screen
+    ========================== -->
+    <section id="welcomeScreen" class="screen">
 
-    <div class="intro-card">
+        <div class="glass">
+
+            <h3>Made Especially For</h3>
+
+            <h1>Happy Birthday</h1>
+
+            <h2>Diksha ❤️</h2>
+
+            <p>
+
+                Every heartbeat has a story...
+
+                <br><br>
+
+                Today I want to show you a little piece of my heart.
+
+            </p>
+
+            <button id="startJourney">
+
+                Begin Our Journey ❤️
+
+            </button>
+
+        </div>
+
+    </section>
+
+</body> <!-- =========================
+     Intro Screen
+========================= -->
+<section id="introScreen" class="screen">
+
+    <div class="glass">
+
+        <h3>A Small Message</h3>
 
         <h1>❤️ Every Love Story is Beautiful ❤️</h1>
 
-        <p id="introText">
-            Ours is my favorite...
+        <h2>But Ours is My Favorite 💖</h2>
+
+        <p>
+
+            Before your birthday surprise begins...
+
+            <br><br>
+
+            I just want you to know that every moment
+            with you is the most beautiful part of my life.
+
+            <br><br>
+
+            This surprise was made with lots of love,
+            just for you.
+
         </p>
 
-        <button id="continueBtn">
+        <button id="continueJourney">
+
             Continue ❤️
+
         </button>
 
     </div>
 
-</div>
+</section> <!-- =========================
+     Romantic Quiz Screen
+========================= -->
+<section id="quizScreen" class="screen">
 
+    <div class="glass">
 
-<div id="quizScreen" class="screen">
+        <h3>Our Love Quiz ❤️</h3>
 
-    <div class="quiz-card">
+        <h1 id="questionNumber">Question 1 of 15</h1>
 
-        <h1>❤️ Our Love Quiz ❤️</h1>
-
-        <h2 id="question">
-            Where did we first meet?
+        <h2 id="questionText">
+            Loading Question...
         </h2>
 
-        <div class="options">
+        <!-- Progress Bar -->
+        <div class="progress">
 
-            <button class="option">School</button>
-            <button class="option">College</button>
-            <button class="option">Online</button>
-            <button class="option">Somewhere Magical ✨</button>
+            <div id="progressBar"></div>
+
+        </div>
+
+        <!-- Answer Buttons -->
+        <div id="options">
+
+            <button class="option">Option 1</button>
+
+            <button class="option">Option 2</button>
+
+            <button class="option">Option 3</button>
+
+            <button class="option">Option 4</button>
+
+        </div>
+
+        <!-- Reply Message -->
+        <p id="replyBox"></p>
+
+    </div>
+
+</section> <!-- =========================
+     Incoming Phone Call Screen
+========================= -->
+<section id="phoneScreen" class="screen">
+
+    <div class="glass">
+
+        <h3>Incoming Video Call</h3>
+
+        <div class="caller">
+
+            <div class="callerImage">
+                ❤️
+            </div>
+
+            <h1>Diksha ❤️</h1>
+
+            <p>Someone special is calling you...</p>
+
+        </div>
+
+        <div class="callButtons">
+
+            <button id="acceptCall">
+                💚 Accept
+            </button>
+
+            <button id="declineCall">
+                ❤️ Decline
+            </button>
 
         </div>
 
     </div>
 
-</div>
+</section> <!-- =========================
+     Birthday Screen
+========================= -->
+<section id="birthdayScreen" class="screen">
 
-<script src="script.js"></script>
+    <div class="glass">
+
+        <h3>Happy Birthday 🎉</h3>
+
+        <h1>🎂 Happy Birthday Diksha ❤️</h1>
+
+        <p>
+
+            Today is your special day.
+
+            <br><br>
+
+            May your smile never fade,
+            your dreams always come true,
+            and your life be filled with happiness,
+            love and success.
+
+        </p>
+
+        <button id="cakeBtn">
+
+            Let's Cut the Cake 🎂
+
+        </button>
+
+    </div>
+
+</section> <!-- =========================
+     Cake Screen
+========================= -->
+<section id="cakeScreen" class="screen">
+
+    <div class="glass">
+
+        <h3>Birthday Cake</h3>
+
+        <h1>🎂</h1>
+
+        <div class="cake" id="cake">
+            🎂
+        </div>
+
+        <p>
+            Make a wish before cutting the cake.
+        </p>
+
+        <button id="giftBtn">
+            Open My Gift 🎁
+        </button>
+
+    </div>
+
+</section> <!-- =========================
+     Gift Screen
+========================= -->
+<section id="giftScreen" class="screen">
+
+    <div class="glass">
+
+        <h3>A Special Gift</h3>
+
+        <div class="gift" id="gift">
+            🎁
+        </div>
+
+        <p>
+
+            This gift is filled with love,
+            happiness and beautiful memories.
+
+        </p>
+
+        <button id="letterBtn">
+            Read My Letter 💌
+        </button>
+
+    </div>
+
+</section> <!-- =========================
+     Love Letter Screen
+========================= -->
+<section id="letterScreen" class="screen">
+
+    <div class="glass">
+
+        <h3>My Letter For You ❤️</h3>
+
+        <div id="letterText">
+
+        </div>
+
+        <button id="fireworkBtn">
+            Final Surprise 🎆
+        </button>
+
+    </div>
+
+</section> <!-- =========================
+     Final Screen
+========================= -->
+<section id="finalScreen" class="screen">
+
+    <div class="glass">
+
+        <h1>
+            ❤️ Happy Birthday Diksha ❤️
+        </h1>
+
+        <p>
+
+            May your life always be filled with
+
+            Love ❤️
+
+            Happiness 😊
+
+            Success 🌸
+
+            Good Health 🌹
+
+            and Endless Smiles ✨
+
+        </p>
+
+    </div>
+
+</section> <script src="script.js"></script> <!-- Background Effects -->
+
+<div id="background">
+
+    <div id="stars"></div>
+
+    <div id="sparkles"></div>
+
+    <div id="hearts"></div>
+
+    <div id="petals"></div>
+
+    <div id="kisses"></div>
+
+    <div id="birds"></div>
+
+    <div id="fireworks"></div>
+
+</div>

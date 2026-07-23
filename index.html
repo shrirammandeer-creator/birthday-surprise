@@ -1,12 +1,94 @@
-<!-- =========================
-     WELCOME SCREEN
-========================= -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Diksha ❤️</title>
+
+    <meta name="theme-color" content="#ff4d88">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ======================================================
+BACKGROUND
+====================================================== -->
+
+<div id="background">
+
+    <div id="stars"></div>
+
+    <div id="hearts"></div>
+
+    <div id="petals"></div>
+
+    <div id="sparkles"></div>
+
+</div>
+
+<!-- ======================================================
+BACKGROUND MUSIC
+====================================================== -->
+
+<audio id="bgMusic" loop>
+
+    <source src="assets/music/romantic.mp3" type="audio/mpeg">
+
+</audio>
+
+<!-- ======================================================
+LOADING SCREEN
+====================================================== -->
+
+<section id="loadingScreen" class="screen active">
+
+    <div class="loadingBox">
+
+        <div class="loaderHeart"></div>
+
+        <h1>Preparing Your Surprise...</h1>
+
+        <p>Please wait a moment ❤️</p>
+
+        <div class="loadingBar">
+
+            <div id="loadingProgress"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+WELCOME
+====================================================== -->
+
 <section id="welcomeScreen" class="screen">
 
-    <div class="glass welcomeCard">
+    <div class="glass">
 
         <div class="loveCircle">
-            <span>❤</span>
+
+            ❤
+
         </div>
 
         <h3>Made Especially For</h3>
@@ -16,14 +98,266 @@
         <h2>Diksha ❤️</h2>
 
         <p>
-            Every heartbeat has a story...<br><br>
-            Today I want to show you a little piece of my heart.
+
+            Every heartbeat has a story...
+
+            <br><br>
+
+            Today I want to show you
+
+            a little piece of my heart.
+
         </p>
 
-        <button type="button" id="startJourney">
+        <button id="startJourney">
+
             Begin Our Journey ❤️
+
         </button>
 
     </div>
 
 </section>
+
+<!-- ======================================================
+QUIZ
+====================================================== -->
+
+<section id="quizScreen" class="screen">
+
+    <div class="glass quizCard">
+
+        <div class="progress">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+        <h4 id="questionNumber">
+
+            Question 1 / 15
+
+        </h4>
+
+        <h2 id="questionText">
+
+            Question
+
+        </h2>
+
+        <div id="options">
+
+        </div>
+
+        <div id="replyBox"></div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+PHONE
+====================================================== -->
+
+<section id="phoneScreen" class="screen">
+
+    <div class="phone">
+
+        <div class="phoneHeader">
+
+            <span>12:00</span>
+
+            <span>
+
+                <i class="fa-solid fa-signal"></i>
+
+                <i class="fa-solid fa-wifi"></i>
+
+                <i class="fa-solid fa-battery-full"></i>
+
+            </span>
+
+        </div>
+
+        <div class="caller">
+
+            ❤️
+
+        </div>
+
+        <h2>Someone Special</h2>
+
+        <p>Incoming Birthday Call...</p>
+
+        <div class="phoneButtons">
+
+            <button id="declineCall" class="red">
+
+                <i class="fa-solid fa-phone-slash"></i>
+
+            </button>
+
+            <button id="acceptCall" class="green">
+
+                <i class="fa-solid fa-phone"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+BIRTHDAY
+====================================================== -->
+
+<section id="birthdayScreen" class="screen">
+
+    <div class="glass">
+
+        <h1>🎉 Happy Birthday 🎉</h1>
+
+        <h2>Diksha ❤️</h2>
+
+        <p>
+
+            Today is your special day.
+
+            I hope every dream you have comes true.
+
+        </p>
+
+        <button id="cakeBtn">
+
+            Continue 🎂
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+CAKE
+====================================================== -->
+
+<section id="cakeScreen" class="screen">
+
+    <div class="glass">
+
+        <div class="cake">
+
+            🎂
+
+        </div>
+
+        <h2>Make A Wish ❤️</h2>
+
+        <p>
+
+            Click the cake to celebrate.
+
+        </p>
+
+        <button id="giftBtn">
+
+            Open Gift 🎁
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+GIFT
+====================================================== -->
+
+<section id="giftScreen" class="screen">
+
+    <div class="glass">
+
+        <div class="gift">
+
+            🎁
+
+        </div>
+
+        <h2>A Surprise For You ❤️</h2>
+
+        <button id="letterBtn">
+
+            Read My Letter 💌
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+LETTER
+====================================================== -->
+
+<section id="letterScreen" class="screen">
+
+    <div class="glass letter">
+
+        <h2>Dear Diksha ❤️</h2>
+
+        <p id="letterText"></p>
+
+        <button id="fireworkBtn">
+
+            Finish ❤️
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+FINAL
+====================================================== -->
+
+<section id="finalScreen" class="screen">
+
+    <div id="fireworks"></div>
+
+    <div class="glass">
+
+        <h1>
+
+            🎆 Happy Birthday 🎆
+
+        </h1>
+
+        <h2>Diksha ❤️</h2>
+
+        <p>
+
+            Thank you for being such a wonderful person.
+
+            May your life always be filled with happiness,
+
+            smiles,
+
+            success,
+
+            and love.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Main JS -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

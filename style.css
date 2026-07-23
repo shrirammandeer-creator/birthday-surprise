@@ -1,33 +1,6 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
-
-body{
+.quiz,.birthday{
 
 height:100vh;
-
-overflow:hidden;
-
-background:linear-gradient(135deg,#ff4d6d,#ff8fab,#ffc2d1);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-#loading{
-
-position:absolute;
-
-width:100%;
-
-height:100%;
 
 display:flex;
 
@@ -37,91 +10,48 @@ justify-content:center;
 
 align-items:center;
 
-color:white;
-
-animation:fadeOut 3s forwards;
-
-}
-
-#loading h1{
-
-font-size:90px;
-
-animation:heart 1s infinite;
-
-}
-
-#loading h2{
-
-margin-top:20px;
-
-font-size:30px;
-
-}
-
-#welcome{
-
-opacity:0;
-
-animation:show 3s forwards;
-
-animation-delay:3s;
-
-}
-
-.glass{
-
-width:420px;
-
-padding:50px;
-
 text-align:center;
 
-border-radius:25px;
-
-background:rgba(255,255,255,.2);
-
-backdrop-filter:blur(20px);
-
-box-shadow:0 20px 40px rgba(0,0,0,.2);
+background:linear-gradient(135deg,#ff4d6d,#ff8fab,#ffc2d1);
 
 color:white;
 
+padding:30px;
+
 }
 
-.glass h1{
+.quiz h1,
+.birthday h1{
 
 font-size:45px;
 
-}
-
-.glass h2{
-
-margin-top:15px;
-
-font-size:35px;
+margin-bottom:30px;
 
 }
 
-.glass p{
+.quiz p,
+.birthday p{
 
-margin:25px 0;
+font-size:28px;
 
-font-size:20px;
+max-width:700px;
 
-line-height:1.6;
+margin-bottom:40px;
+
+line-height:1.5;
 
 }
 
-button{
+.quiz button,
+.birthday button{
 
 padding:18px 40px;
+
+font-size:22px;
 
 border:none;
 
 border-radius:50px;
-
-font-size:20px;
 
 cursor:pointer;
 
@@ -130,51 +60,5 @@ background:white;
 color:#ff4d6d;
 
 font-weight:bold;
-
-transition:.3s;
-
-}
-
-button:hover{
-
-transform:scale(1.05);
-
-}
-
-@keyframes heart{
-
-50%{
-
-transform:scale(1.2);
-
-}
-
-}
-
-@keyframes fadeOut{
-
-0%{
-
-opacity:1;
-
-}
-
-100%{
-
-opacity:0;
-
-visibility:hidden;
-
-}
-
-}
-
-@keyframes show{
-
-100%{
-
-opacity:1;
-
-}
 
 }

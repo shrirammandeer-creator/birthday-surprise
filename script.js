@@ -1,27 +1,47 @@
-console.log("Website Loaded ❤️");
+/* ===========================================
+   HAPPY BIRTHDAY DIKSHA ❤️
+   JavaScript Part 1
+=========================================== */
 
-// Loading → Welcome
-setTimeout(() => {
+// All screens
+const screens = document.querySelectorAll(".screen");
 
-    document.getElementById("loadingScreen").classList.remove("active");
-    document.getElementById("welcomeScreen").classList.add("active");
+// Helper function to show a screen
+function showScreen(id) {
 
-}, 3000);
+    screens.forEach(screen => {
+        screen.classList.remove("active");
+    });
 
+    document.getElementById(id).classList.add("active");
+}
 
-// Welcome → Intro
-document.getElementById("startBtn").addEventListener("click", () => {
+// ==========================
+// LOADING SCREEN
+// ==========================
 
-    document.getElementById("welcomeScreen").classList.remove("active");
-    document.getElementById("introScreen").classList.add("active");
+window.addEventListener("load", () => {
+
+    showScreen("loadingScreen");
+
+    setTimeout(() => {
+        showScreen("welcomeScreen");
+    }, 3000);
 
 });
 
+// ==========================
+// BUTTONS
+// ==========================
 
-// Intro → Quiz
-document.getElementById("continueBtn").addEventListener("click", () => {
+document.getElementById("startJourney").addEventListener("click", () => {
 
-    document.getElementById("introScreen").classList.remove("active");
-    document.getElementById("quizScreen").classList.add("active");
+    showScreen("introScreen");
+
+});
+
+document.getElementById("continueJourney").addEventListener("click", () => {
+
+    showScreen("quizScreen");
 
 });

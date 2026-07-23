@@ -39,10 +39,21 @@ window.addEventListener("load",()=>{
 // START BUTTON
 // =========================
 
+const introScreen = document.getElementById("introScreen");
+const continueJourney = document.getElementById("continueJourney");
+
 startButton.addEventListener("click",()=>{
 
     bgMusic.play().catch(()=>{});
 
-    alert("❤️ Perfect! Our Journey Starts Here...");
+    showScreen(introScreen);
+
+});
+
+continueJourney.addEventListener("click",()=>{
+
+    alert("✅ Intro Screen Working Successfully!");
+
+});
 
 });

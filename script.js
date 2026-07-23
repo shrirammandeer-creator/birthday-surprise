@@ -30,6 +30,16 @@ function renderQuestion(){
 
 document.body.innerHTML = `
 
+<div class="hearts">
+
+<span>❤️</span>
+<span>💕</span>
+<span>💖</span>
+<span>💗</span>
+<span>💘</span>
+
+</div>
+
 <div class="quiz">
 
 <div class="progressBox">

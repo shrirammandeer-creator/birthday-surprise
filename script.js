@@ -83,8 +83,27 @@ nextQuestion.addEventListener("click", () => {
 
     }
 
-});{
+const quizData = [
+
+{
     question:"Who is the most beautiful girl? ❤️",
+    answers:["Diksha ❤️","Someone Else","Nobody","Don't Know"],
+    correct:0
+},
+
+{
+    question:"Who makes me smile everyday? 😊",
+    answers:["Diksha ❤️","Mobile","Friends","Food"],
+    correct:0
+},
+
+{
+    question:"Today's Birthday Queen is? 👑",
+    answers:["Diksha ❤️","Me","Nobody","Everyone"],
+    correct:0
+}
+
+];
     answers:["Diksha ❤️","Someone Else","Nobody","Don't Know"],
     correct:0
 },

@@ -1,285 +1,330 @@
+/* ===========================================
+   HAPPY BIRTHDAY DIKSHA ❤️
+   CSS PART 1
+=========================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
 
+    width:100%;
     height:100vh;
+    overflow:hidden;
 
-    display:flex;
+    font-family:Arial,Helvetica,sans-serif;
+
+    background:linear-gradient(135deg,#17001f,#2b0047,#43005e,#7b0057);
+
+    color:#ffffff;
+
+}
+
+/* ==========================
+   SCREEN SYSTEM
+========================== */
+
+.screen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
 
     justify-content:center;
 
     align-items:center;
 
-    background:linear-gradient(135deg,#ff4d88,#7b2ff7);
-
-    font-family:Arial,sans-serif;
-
-    color:white;
+    padding:30px;
 
 }
 
-#loadingScreen{
+.screen.active{
+
+    display:flex;
+
+}
+
+/* ==========================
+   GLASS CARD
+========================== */
+
+.glass{
+
+    width:min(750px,90vw);
+
+    padding:45px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.10);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.20);
 
     text-align:center;
 
-}
-
-.loader{
-
-    width:90px;
-
-    height:90px;
-
-    margin:auto;
-
-    border:8px solid rgba(255,255,255,.25);
-
-    border-top:8px solid white;
-
-    border-radius:50%;
-
-    animation:spin 1s linear infinite;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
 
 }
+
+/* ==========================
+   HEADINGS
+========================== */
 
 h1{
 
-    margin-top:30px;
+    font-size:58px;
 
-    font-size:40px;
+    margin-bottom:15px;
+
+}
+
+h2{
+
+    font-size:36px;
+
+    margin-bottom:20px;
+
+    color:#ffd6ea;
+
+}
+
+h3{
+
+    font-size:18px;
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    margin-bottom:20px;
+
+    color:#ffb9dc;
 
 }
 
 p{
 
-    margin-top:10px;
+    font-size:20px;
+
+    line-height:1.8;
+
+    margin:25px 0;
+
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+button{
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
 
     font-size:20px;
 
-    opacity:.9;
+    font-weight:bold;
+
+    color:white;
+
+    background:linear-gradient(45deg,#ff2d75,#ff6cae);
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    transform:translateY(-5px) scale(1.05);
+
+    box-shadow:0 15px 35px rgba(255,40,120,.45);
+
+} /* ===========================================
+   CSS PART 2
+   LOADING + BACKGROUND
+===========================================*/
+
+/* ==========================
+   LOADING SCREEN
+========================== */
+
+.loaderBox{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.loader{
+
+    width:90px;
+    height:90px;
+
+    border:8px solid rgba(255,255,255,.25);
+
+    border-top:8px solid #ffffff;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+    margin-bottom:30px;
 
 }
 
 @keyframes spin{
 
     from{
-
         transform:rotate(0deg);
-
     }
 
     to{
-
         transform:rotate(360deg);
+    }
+
+}
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+#background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    overflow:hidden;
+
+}
+
+/* Stars */
+
+#stars{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    background-image:
+    radial-gradient(white 1px,transparent 1px);
+
+    background-size:40px 40px;
+
+    opacity:.25;
+
+    animation:starsMove 80s linear infinite;
+
+}
+
+@keyframes starsMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(300px);
+    }
+
+}
+
+/* Sparkles */
+
+#sparkles{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    background-image:
+    radial-gradient(#fff 1px,transparent 1px);
+
+    background-size:120px 120px;
+
+    opacity:.18;
+
+    animation:sparkle 6s infinite;
+
+}
+
+@keyframes sparkle{
+
+    50%{
+
+        opacity:.45;
 
     }
 
-} .screen{
-    position:fixed;
-    top:0;
-    left:0;
+}
+
+/* Hearts */
+
+#hearts{
+
+    position:absolute;
+
     width:100%;
-    height:100vh;
 
-    display:none;
-
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    text-align:center;
-
-    background:linear-gradient(135deg,#ff4d88,#7b2ff7);
-
-    color:white;
-
-    padding:20px;
-}
-
-.screen.active{
-    display:flex;
-}
-#welcomeScreen{
-
-    padding:20px;
+    height:100%;
 
 }
 
-#welcomeScreen p{
+/* Petals */
 
-    max-width:600px;
+#petals{
 
-    line-height:1.7;
+    position:absolute;
 
-    margin:20px 0;
+    width:100%;
 
-}
-
-#startBtn{
-
-    margin-top:25px;
-
-    padding:16px 35px;
-
-    border:none;
-
-    border-radius:50px;
-
-    font-size:20px;
-
-    cursor:pointer;
-
-    background:white;
-
-    color:#ff4d88;
-
-    transition:.3s;
+    height:100%;
 
 }
 
-#startBtn:hover{
+/* Birds */
 
-    transform:scale(1.08);
+#birds{
 
-}
-.welcome-card{
+    position:absolute;
 
-    width:90%;
-    max-width:700px;
+    width:100%;
 
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(12px);
-
-    border-radius:25px;
-
-    padding:50px;
-
-    box-shadow:0 10px 35px rgba(0,0,0,.25);
+    height:100%;
 
 }
 
-.welcome-card h1{
+/* Fireworks */
 
-    font-size:52px;
+#fireworks{
 
-    margin-bottom:15px;
+    position:absolute;
 
-}
+    width:100%;
 
-.welcome-card h2{
+    height:100%;
 
-    font-size:30px;
+    pointer-events:none;
 
-    margin-bottom:25px;
-
-    color:#ffe8f1;
-
-}
-
-.welcome-card p{
-
-    font-size:20px;
-
-    line-height:1.8;
-
-    margin-bottom:35px;
-
-}
-
-#startBtn{
-
-    background:white;
-
-    color:#ff2d75;
-
-    font-size:22px;
-
-    padding:18px 40px;
-
-    border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-#startBtn:hover{
-
-    transform:scale(1.08);
-
-    box-shadow:0 10px 25px rgba(255,255,255,.4);
-
-} #quizScreen{
-
-    background:linear-gradient(135deg,#ff4d88,#7b2ff7);
-
-}
-
-.quiz-card{
-
-    width:90%;
-    max-width:700px;
-
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(12px);
-
-    padding:45px;
-
-    border-radius:25px;
-
-    text-align:center;
-
-}
-
-.quiz-card h1{
-
-    margin-bottom:25px;
-
-}
-
-.quiz-card h2{
-
-    margin-bottom:30px;
-
-}
-
-.options{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:15px;
-
-}
-
-.option{
-
-    padding:16px;
-
-    font-size:18px;
-
-    border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.option:hover{
-
-    transform:scale(1.05);
-
-}
+} 

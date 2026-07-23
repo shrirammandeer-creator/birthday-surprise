@@ -1,11 +1,11 @@
 /*==================================================
-    HAPPY BIRTHDAY DIKSHA ❤️
-    SCRIPT.JS - PART 1
+      HAPPY BIRTHDAY DIKSHA ❤️
+      SCRIPT.JS - PART 1
 ==================================================*/
 
-/* -----------------------
-   SCREEN REFERENCES
------------------------ */
+/* ===========================
+SCREEN REFERENCES
+=========================== */
 
 const screens = {
     loading: document.getElementById("loadingScreen"),
@@ -19,51 +19,54 @@ const screens = {
     final: document.getElementById("finalScreen")
 };
 
-/* -----------------------
-   BUTTONS
------------------------ */
+/* ===========================
+BUTTONS
+=========================== */
 
 const startBtn = document.getElementById("startJourney");
-const acceptCall = document.getElementById("acceptCall");
-const declineCall = document.getElementById("declineCall");
+const acceptBtn = document.getElementById("acceptCall");
+const declineBtn = document.getElementById("declineCall");
 
 const cakeBtn = document.getElementById("cakeBtn");
 const giftBtn = document.getElementById("giftBtn");
 const letterBtn = document.getElementById("letterBtn");
-const fireworkBtn = document.getElementById("fireworkBtn");
+const finishBtn = document.getElementById("fireworkBtn");
 
-/* -----------------------
-   QUIZ ELEMENTS
------------------------ */
+/* ===========================
+OTHER ELEMENTS
+=========================== */
 
-const questionText = document.getElementById("questionText");
+const bgMusic = document.getElementById("bgMusic");
+const loadingProgress = document.getElementById("loadingProgress");
+
+/* ===========================
+QUIZ ELEMENTS
+=========================== */
+
 const questionNumber = document.getElementById("questionNumber");
+const questionText = document.getElementById("questionText");
 const options = document.getElementById("options");
 const progressBar = document.getElementById("progressBar");
 const replyBox = document.getElementById("replyBox");
 
-/* -----------------------
-   MUSIC
------------------------ */
+const letterText = document.getElementById("letterText");
 
-const bgMusic = document.getElementById("bgMusic");
-
-/* -----------------------
-   VARIABLES
------------------------ */
+/* ===========================
+VARIABLES
+=========================== */
 
 let currentQuestion = 0;
 let score = 0;
 
-/* -----------------------
-   SCREEN FUNCTION
------------------------ */
+/* ===========================
+SHOW SCREEN
+=========================== */
 
 function showScreen(screen){
 
-    Object.values(screens).forEach(s=>{
+    Object.values(screens).forEach(item=>{
 
-        s.classList.remove("active");
+        item.classList.remove("active");
 
     });
 
@@ -71,27 +74,57 @@ function showScreen(screen){
 
 }
 
-/* -----------------------
-   LOADING SCREEN
------------------------ */
+/* ===========================
+LOADING SCREEN
+=========================== */
 
 window.addEventListener("load",()=>{
 
-    setTimeout(()=>{
+    let progress=0;
 
-        showScreen(screens.welcome);
+    const loader=setInterval(()=>{
 
-    },3500);
+        progress+=2;
+
+        loadingProgress.style.width=progress+"%";
+
+        if(progress>=100){
+
+            clearInterval(loader);
+
+            setTimeout(()=>{
+
+                showScreen(screens.welcome);
+
+            },500);
+
+        }
+
+    },60);
 
 });
 
-/* -----------------------
-   START JOURNEY
------------------------ */
+/* ===========================
+BACKGROUND MUSIC
+=========================== */
 
-startBtn.addEventListener("click",()=>{
+function playMusic(){
+
+    if(!bgMusic) return;
+
+    bgMusic.volume=0.5;
 
     bgMusic.play().catch(()=>{});
+
+}
+
+document.addEventListener("click",playMusic,{once:true});
+
+/* ===========================
+START JOURNEY
+=========================== */
+
+startBtn.addEventListener("click",()=>{
 
     currentQuestion=0;
 
@@ -103,90 +136,59 @@ startBtn.addEventListener("click",()=>{
 
 });
 
-/* -----------------------
-   QUESTIONS
------------------------ */
+/* ===========================
+UTILITY
+=========================== */
 
-/*==================================================
-    SCRIPT.JS - PART 2
-    Romantic Questions + Quiz Upgrade
+function wait(ms){
+
+    return new Promise(resolve=>{
+
+        setTimeout(resolve,ms);
+
+    });
+
+} /*==================================================
+      HAPPY BIRTHDAY DIKSHA ❤️
+      SCRIPT.JS - PART 2
+      Romantic Quiz
 ==================================================*/
+
+/* ===========================
+ROMANTIC QUESTIONS
+=========================== */
 
 const questions = [
 
 {
-    question:"❤️ Who is the most beautiful girl in my world?",
+    question:"❤️ Who is the most beautiful girl in my life?",
     options:[
         "Diksha ❤️",
-        "Someone else",
-        "I don't know",
-        "Maybe me 😄"
+        "Someone Else",
+        "I Don't Know",
+        "Everyone"
     ],
     correct:0
 },
 
 {
-    question:"💕 If we could go anywhere together, where should we go?",
+    question:"💕 What is the strongest part of our relationship?",
     options:[
-        "Beach",
-        "Mountains",
-        "Anywhere together ❤️",
-        "Shopping Mall"
+        "Trust ❤️",
+        "Arguments",
+        "Distance",
+        "Luck"
     ],
-    correct:2
+    correct:0
 },
 
 {
-    question:"🥰 What makes love stronger?",
-    options:[
-        "Trust",
-        "Care",
-        "Respect",
-        "All of these ❤️"
-    ],
-    correct:3
-},
-
-{
-    question:"😘 Which emoji describes us the best?",
-    options:[
-        "❤️",
-        "💕",
-        "💖",
-        "All of them"
-    ],
-    correct:3
-},
-
-{
-    question:"🎵 Which song should always remind us of each other?",
-    options:[
-        "Romantic Song",
-        "Happy Song",
-        "Our Favorite Song ❤️",
-        "Dance Song"
-    ],
-    correct:2
-},
-
-{
-    question:"🌹 What should I give you every single day?",
+    question:"🌹 What should I give you every day?",
     options:[
         "Flowers",
         "Chocolate",
         "Love ❤️",
-        "Everything"
-    ],
-    correct:2
-},
-
-{
-    question:"💌 What is the most valuable gift?",
-    options:[
-        "Money",
-        "Jewelry",
-        "Time & Love ❤️",
-        "Phone"
+        "Money"
     ],
     correct:2
 },
@@ -203,17 +205,6 @@ const questions = [
 },
 
 {
-    question:"🌈 Our relationship should always be filled with...",
-    options:[
-        "Arguments",
-        "Trust",
-        "Happiness",
-        "Trust + Happiness + Love ❤️"
-    ],
-    correct:3
-},
-
-{
     question:"🎂 Whose birthday is the most special today?",
     options:[
         "Diksha ❤️",
@@ -227,21 +218,32 @@ const questions = [
 {
     question:"💖 What do I love the most?",
     options:[
-        "Pizza 🍕",
-        "Gaming 🎮",
+        "Pizza",
+        "Gaming",
         "Diksha ❤️",
-        "Sleeping 😴"
+        "Sleeping"
     ],
     correct:2
 },
 
 {
-    question:"🌙 If I make one wish tonight...",
+    question:"🌈 Our relationship should always have...",
     options:[
-        "More Money",
-        "New Phone",
-        "Your Happiness ❤️",
-        "Vacation"
+        "Trust",
+        "Love",
+        "Happiness",
+        "All of these ❤️"
+    ],
+    correct:3
+},
+
+{
+    question:"💌 The most valuable gift is...",
+    options:[
+        "Money",
+        "Jewellery",
+        "Time & Love ❤️",
+        "Phone"
     ],
     correct:2
 },
@@ -250,9 +252,9 @@ const questions = [
     question:"🎁 What's inside today's surprise?",
     options:[
         "Love ❤️",
-        "Happiness",
         "Memories",
-        "All of these"
+        "Happiness",
+        "All of these ❤️"
     ],
     correct:3
 },
@@ -260,173 +262,98 @@ const questions = [
 {
     question:"💍 Which promise should last forever?",
     options:[
-        "Always Support",
-        "Always Care",
-        "Always Love",
+        "Support",
+        "Care",
+        "Love",
         "All Forever ❤️"
     ],
     correct:3
 },
 
 {
-    question:"❤️ Ready to see your birthday surprise?",
+    question:"🌙 My biggest wish is...",
+    options:[
+        "New Phone",
+        "More Money",
+        "Your Happiness ❤️",
+        "Vacation"
+    ],
+    correct:2
+},
+
+{
+    question:"🥰 Who is my favorite person?",
+    options:[
+        "Diksha ❤️",
+        "Nobody",
+        "Friends",
+        "Family"
+    ],
+    correct:0
+},
+
+{
+    question:"💕 What makes every day beautiful?",
+    options:[
+        "Your Smile ❤️",
+        "Weather",
+        "Music",
+        "Food"
+    ],
+    correct:0
+},
+
+{
+    question:"❤️ Are you ready for your birthday surprise?",
     options:[
         "YES ❤️",
         "Absolutely ❤️",
-        "Can't Wait ❤️",
-        "Let's Go ❤️"
+        "Let's Go ❤️",
+        "Can't Wait ❤️"
     ],
     correct:0
-];
-
-{
-question:"When did we first start talking? ❤️",
-options:[
-"Our first chat",
-"Yesterday 😂",
-"I don't remember",
-"Never"
-],
-correct:0
 },
 
 {
-question:"Who is the cutest? 😘",
-options:[
-"You ❤️",
-"Me 😎",
-"Both",
-"Our future pet"
-],
-correct:0
-},
+    question:"🎉 Shall we celebrate together?",
+    options:[
+        "YES ❤️",
+        "Of Course ❤️",
+        "Always ❤️",
+        "Forever ❤️"
+    ],
+    correct:0
+}];
 
-{
-question:"What makes our bond special? 💖",
-options:[
-"Love",
-"Trust",
-"Care",
-"All of these"
-],
-correct:3
-},
-
-{
-question:"If we travel together, where should we go first? ✈️",
-options:[
-"Mountains",
-"Beach",
-"Anywhere together ❤️",
-"Paris"
-],
-correct:2
-},
-
-{
-question:"What's the best birthday gift? 🎁",
-options:[
-"Money",
-"Flowers",
-"Love ❤️",
-"Chocolate"
-],
-correct:2
-},
-
-{
-question:"Who makes me smile the most? 😊",
-options:[
-"Diksha ❤️",
-"Myself",
-"My phone",
-"Nobody"
-],
-correct:0
-},
-
-{
-question:"Our favorite thing to do? 💕",
-options:[
-"Talk",
-"Travel",
-"Laugh",
-"Everything together"
-],
-correct:3
-},
-
-{
-question:"Which emoji suits us? ❤️",
-options:[
-"❤️",
-"💕",
-"💖",
-"All"
-],
-correct:3
-},
-
-{
-question:"What should never end?",
-options:[
-"Our memories",
-"Our love",
-"Our friendship",
-"All"
-],
-correct:3
-},
-
-{
-question:"Today's queen is... 👑",
-options:[
-"Diksha ❤️",
-"Diksha ❤️",
-"Diksha ❤️",
-"Obviously Diksha ❤️"
-],
-correct:3
-},
-
-{
-question:"Ready for the birthday surprise?",
-options:[
-"YES ❤️",
-"Absolutely ❤️",
-"Let's Go ❤️",
-"Can't Wait ❤️"
-],
-correct:0
-}
-
-];
-
-/* -----------------------
-   LOAD QUESTION
------------------------ */
+/* ===========================
+LOAD QUESTION
+=========================== */
 
 function loadQuestion(){
 
-    const q=questions[currentQuestion];
+    const q = questions[currentQuestion];
 
-    questionText.innerHTML=q.question;
+    questionNumber.textContent =
+    `Question ${currentQuestion + 1} / ${questions.length}`;
 
-    questionNumber.innerHTML=`Question ${currentQuestion+1} / ${questions.length}`;
+    questionText.textContent =
+    q.question;
 
-    progressBar.style.width=((currentQuestion)/questions.length)*100+"%";
+    progressBar.style.width =
+    `${(currentQuestion / questions.length) * 100}%`;
 
-    options.innerHTML="";
+    options.innerHTML = "";
 
     q.options.forEach((option,index)=>{
 
-        const btn=document.createElement("button");
+        const btn =
+        document.createElement("button");
 
-        btn.className="option";
+        btn.className = "option";
 
-        btn.innerHTML=option;
+        btn.textContent = option;
 
-        btn.onclick=()=>selectAnswer(index);
+        btn.onclick = ()=>selectAnswer(index);
 
         options.appendChild(btn);
 
@@ -434,13 +361,16 @@ function loadQuestion(){
 
 }
 
-/* -----------------------
-   SELECT ANSWER
------------------------ */
+/* ===========================
+SELECT ANSWER
+=========================== */
 
 function selectAnswer(index){
 
-    if(index===questions[currentQuestion].correct){
+    const current =
+    questions[currentQuestion];
+
+    if(index===current.correct){
 
         score++;
 
@@ -466,170 +396,88 @@ function selectAnswer(index){
 
             progressBar.style.width="100%";
 
-            showScreen(screens.phone);
+            openPhoneScreen();
 
         }
 
-    },1200);
+    },1000);
 
 }
 
-/* -----------------------
-   PHONE SCREEN
------------------------ */
-
-acceptCall.addEventListener("click",()=>{
-
-    showScreen(screens.birthday);
-
-});
-
-declineCall.addEventListener("click",()=>{
-
-    alert("No no 😄... You have to answer the birthday call!");
-
-});
-/*==================================================
-    SCRIPT.JS - PART 3A
-    Phone Call + Birthday Screen + Balloons
-==================================================*/
-
-/* -----------------------
-   PHONE RINGTONE
------------------------ */
-
-const ringtone = new Audio(
-    "assets/music/ringtone.mp3"
-);
-
-ringtone.loop = true;
-
-/* -----------------------
-   PHONE VIBRATION
------------------------ */
-
-function startPhoneAnimation(){
-
-    ringtone.play().catch(()=>{});
-
-    const phone = document.querySelector(".phone");
-
-    phone.classList.add("ringing");
-
-}
-
-/* -----------------------
-   STOP PHONE
------------------------ */
-
-function stopPhoneAnimation(){
-
-    ringtone.pause();
-
-    ringtone.currentTime = 0;
-
-    const phone = document.querySelector(".phone");
-
-    phone.classList.remove("ringing");
-
-}
-
-/* -----------------------
-   OPEN PHONE SCREEN
------------------------ */
+/* ===========================
+PHONE SCREEN
+=========================== */
 
 function openPhoneScreen(){
 
-    showScreen(screens.phone)
+    showScreen(screens.phone);
 
-    startPhoneAnimation();
+    document.querySelector(".phone")
+    .classList.add("ringing");
 
 }
 
-/* -----------------------
-   UPDATE QUIZ END
------------------------ */
+console.log("❤️ Script Part 2 Loaded"); /*==================================================
+      HAPPY BIRTHDAY DIKSHA ❤️
+      SCRIPT.JS - PART 3
+      Phone • Birthday • Cake • Gift
+==================================================*/
 
-/* Replace this line inside selectAnswer()
+/* ===========================
+PHONE CALL
+=========================== */
 
-showScreen(screens.phone);
+const phone = document.querySelector(".phone");
 
-WITH
+function startPhoneRing(){
 
-openPhoneScreen();
+    if(phone){
 
-*/
-
-/* -----------------------
-   ACCEPT CALL
------------------------ */
-
-acceptCall.addEventListener("click",()=>{
-
-    stopPhoneAnimation();
-
-    showScreen(screens.birthday);
-
-    launchBalloons();
-
-});
-
-/* -----------------------
-   DECLINE CALL
------------------------ */
-
-declineCall.addEventListener("click",()=>{
-
-    alert("😂 Nice try!\nYou must answer my birthday call ❤️");
-
-});
-
-/* -----------------------
-   BALLOONS
------------------------ */
-
-function launchBalloons(){
-
-    for(let i=0;i<25;i++){
-
-        createBalloon();
+        phone.classList.add("ringing");
 
     }
 
 }
 
-/* -----------------------
-   CREATE BALLOON
------------------------ */
+function stopPhoneRing(){
 
-function createBalloon(){
+    if(phone){
 
-    const balloon=document.createElement("div");
+        phone.classList.remove("ringing");
 
-    balloon.className="balloon";
-
-    balloon.innerHTML="🎈";
-
-    balloon.style.left=Math.random()*100+"vw";
-
-    balloon.style.fontSize=(30+Math.random()*35)+"px";
-
-    balloon.style.animationDuration=
-        (6+Math.random()*5)+"s";
-
-    document.body.appendChild(balloon);
-
-    setTimeout(()=>{
-
-        balloon.remove();
-
-    },12000);
+    }
 
 }
 
-/* -----------------------
-   BIRTHDAY BUTTON
------------------------ */
+/* ===========================
+ACCEPT CALL
+=========================== */
+
+acceptBtn.addEventListener("click",()=>{
+
+    stopPhoneRing();
+
+    launchBalloons();
+
+    launchConfetti();
+
+    showScreen(screens.birthday);
+
+});
+
+/* ===========================
+DECLINE CALL
+=========================== */
+
+declineBtn.addEventListener("click",()=>{
+
+    alert("😄 Nice try!\nYou have to answer my birthday call ❤️");
+
+});
+
+/* ===========================
+BIRTHDAY BUTTON
+=========================== */
 
 cakeBtn.addEventListener("click",()=>{
 
@@ -637,31 +485,64 @@ cakeBtn.addEventListener("click",()=>{
 
 });
 
-/* -----------------------
-   CONFETTI
------------------------ */
+/* ===========================
+BALLOONS
+=========================== */
 
-function launchConfetti(){
+function launchBalloons(){
 
-    for(let i=0;i<100;i++){
+    for(let i=0;i<25;i++){
 
-        const piece=document.createElement("div");
+        const balloon=document.createElement("div");
 
-        piece.className="confetti";
+        balloon.className="balloon";
 
-        piece.style.left=Math.random()*100+"vw";
+        balloon.innerHTML="🎈";
 
-        piece.style.animationDuration=
-            (3+Math.random()*3)+"s";
+        balloon.style.left=Math.random()*100+"vw";
 
-        piece.style.transform=
-            `rotate(${Math.random()*360}deg)`;
+        balloon.style.fontSize=(35+Math.random()*35)+"px";
 
-        document.body.appendChild(piece);
+        balloon.style.animationDuration=
+        (6+Math.random()*4)+"s";
+
+        document.body.appendChild(balloon);
 
         setTimeout(()=>{
 
-            piece.remove();
+            balloon.remove();
+
+        },10000);
+
+    }
+
+}
+
+/* ===========================
+CONFETTI
+=========================== */
+
+function launchConfetti(){
+
+    for(let i=0;i<120;i++){
+
+        const confetti=document.createElement("div");
+
+        confetti.className="confetti";
+
+        confetti.style.left=Math.random()*100+"vw";
+
+        confetti.style.animationDuration=
+        (3+Math.random()*3)+"s";
+
+        confetti.style.transform=
+        `rotate(${Math.random()*360}deg)`;
+
+        document.body.appendChild(confetti);
+
+        setTimeout(()=>{
+
+            confetti.remove();
 
         },6000);
 
@@ -669,315 +550,208 @@ function launchConfetti(){
 
 }
 
-/* -----------------------
-   AUTO CONFETTI
------------------------ */
+/* ===========================
+CAKE
+=========================== */
 
-setInterval(()=>{
+const cake=document.querySelector(".cake");
 
-    if(
-        screens.birthday.classList.contains("active")
-    ){
-
-        launchConfetti();
-
-    }
-
-},4000);
-/*==================================================
-      SCRIPT.JS - PART 3B
-      Cake • Gift • Letter
-==================================================*/
-
-/* -----------------------
-      CAKE ANIMATION
------------------------ */
-
-const cake = document.querySelector(".cake");
-
-let cakeCut = false;
+let cakeCut=false;
 
 if(cake){
 
 cake.addEventListener("click",()=>{
 
-if(cakeCut) return;
+    if(cakeCut) return;
 
-cakeCut = true;
+    cakeCut=true;
 
-cake.innerHTML="🍰";
+    cake.classList.add("cakeCut");
 
-cake.style.transform="scale(1.2) rotate(-8deg)";
+    cake.innerHTML="🍰";
 
-replyBox.innerHTML="🎉 Happy Birthday Diksha ❤️";
+    replyBox.innerHTML="🎉 Happy Birthday Diksha ❤️";
 
-setTimeout(()=>{
+    launchConfetti();
 
-replyBox.innerHTML="";
+    setTimeout(()=>{
 
-},2000);
+        replyBox.innerHTML="";
 
-launchConfetti();
+    },2000);
 
 });
 
 }
 
-/* -----------------------
-      GIFT BUTTON
------------------------ */
+/* ===========================
+OPEN GIFT
+=========================== */
 
 giftBtn.addEventListener("click",()=>{
 
-showScreen(screens.gift);
-
-animateGift();
+    showScreen(screens.gift);
 
 });
 
-/* -----------------------
-      GIFT ANIMATION
------------------------ */
-
-const gift = document.querySelector(".gift");
-
-function animateGift(){
-
-if(!gift) return;
-
-gift.classList.add("giftBounce");
-
-}
-
-/* -----------------------
-      OPEN GIFT
------------------------ */
+const gift=document.querySelector(".gift");
 
 if(gift){
 
 gift.addEventListener("click",()=>{
 
-gift.innerHTML="💖";
+    gift.innerHTML="💖";
 
-gift.style.transform="scale(1.3) rotate(15deg)";
+    gift.classList.add("giftBounce");
 
-gift.style.transition=".6s";
-
-launchConfetti();
+    launchConfetti();
 
 });
 
 }
 
-/* -----------------------
-      LETTER BUTTON
------------------------ */
+/* ===========================
+LOVE LETTER
+=========================== */
 
 letterBtn.addEventListener("click",()=>{
 
-showScreen(screens.letter);
+    showScreen(screens.letter);
 
-startLetter();
+    startLetter();
 
 });
 
-/* -----------------------
-      LOVE LETTER
------------------------ */
+/* ===========================
+LETTER MESSAGE
+=========================== */
 
-const message=
-
-`My Dearest Diksha ❤️
+const message=`My Dearest Diksha ❤️
 
 Happy Birthday to the most beautiful person in my life.
 
-Every smile of yours makes my day brighter.
+I hope this birthday brings you endless happiness, beautiful memories, success, peace, and lots of smiles.
 
-Every moment with you becomes a beautiful memory.
+Thank you for being such an important part of my life.
 
-I hope today brings you endless happiness,
-lots of laughter,
-good health,
-and all your dreams come true.
+May all your dreams come true.
 
-Thank you for being so special.
-
-May this year fill your life with success,
-peace,
-love,
-and countless beautiful memories.
-
-Always keep smiling...
-
-Because your smile is my favorite.
+Always remember that you are special, loved, and appreciated.
 
 ❤️ Happy Birthday Once Again ❤️
 
 With Lots of Love ❤️`;
 
-const letterText=document.getElementById("letterText");
-
-let index=0;
-
-/* -----------------------
-      TYPEWRITER
------------------------ */
+let letterIndex=0;
 
 function startLetter(){
 
-letterText.innerHTML="";
+    letterText.innerHTML="";
 
-index=0;
+    letterIndex=0;
 
-typeLetter();
+    typeLetter();
 
 }
 
 function typeLetter(){
 
-if(index<message.length){
+    if(letterIndex<message.length){
 
-letterText.innerHTML+=message.charAt(index);
+        letterText.innerHTML+=message.charAt(letterIndex);
 
-index++;
+        letterIndex++;
 
-setTimeout(typeLetter,35);
+        setTimeout(typeLetter,35);
+
+    }
 
 }
 
-}
+console.log("❤️ Script Part 3 Loaded"); /*==================================================
+      HAPPY BIRTHDAY DIKSHA ❤️
+      SCRIPT.JS - PART 4
+      Final Celebration
+==================================================*/
 
-/* -----------------------
-      FINISH BUTTON
------------------------ */
+/* ===========================
+FINISH BUTTON
+=========================== */
 
-fireworkBtn.addEventListener("click",()=>{
+finishBtn.addEventListener("click",()=>{
 
-showScreen(screens.final);
+    showScreen(screens.final);
 
-startFireworks();
+    launchFinalEffects();
 
 });
 
-/* -----------------------
-      HEART BURST
------------------------ */
+/* ===========================
+FIREWORKS
+=========================== */
 
-function heartBurst(){
-
-for(let i=0;i<30;i++){
-
-const heart=document.createElement("div");
-
-heart.innerHTML="❤️";
-
-heart.className="heartBurst";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.top=Math.random()*100+"vh";
-
-heart.style.fontSize=(20+Math.random()*25)+"px";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},4000);
-
-}
-
-}
-
-setInterval(()=>{
-
-if(screens.letter.classList.contains("active")){
-
-heartBurst();
-
-}
-
-},3500);
-/*==================================================
-      SCRIPT.JS - PART 3C
-      Fireworks • Ending • Restart
-==================================================*/
-
-/* -----------------------
-      FIREWORKS
------------------------ */
-
-const fireworksContainer =
+const fireworks =
 document.getElementById("fireworks");
 
+let fireworkInterval;
+
 function createFirework(){
+
+    if(!fireworks) return;
 
     const firework =
     document.createElement("div");
 
     firework.className="firework";
 
-    firework.style.left=
+    firework.style.left =
     Math.random()*100+"vw";
 
-    firework.style.top=
+    firework.style.top =
     (10+Math.random()*60)+"vh";
 
-    fireworksContainer.appendChild(firework);
+    for(let i=0;i<30;i++){
 
-    for(let i=0;i<25;i++){
-
-        const particle=
+        const particle =
         document.createElement("span");
 
         particle.className="particle";
 
         particle.style.setProperty(
-        "--x",
-        (Math.random()-0.5)*250+"px");
+            "--x",
+            (Math.random()-0.5)*250+"px"
+        );
 
         particle.style.setProperty(
-        "--y",
-        (Math.random()-0.5)*250+"px");
-
-        particle.style.animationDelay=
-        Math.random()*0.3+"s";
+            "--y",
+            (Math.random()-0.5)*250+"px"
+        );
 
         firework.appendChild(particle);
 
     }
 
+    fireworks.appendChild(firework);
+
     setTimeout(()=>{
 
         firework.remove();
 
-    },2500);
+    },1800);
 
 }
-
-/* -----------------------
-      START FIREWORKS
------------------------ */
-
-let fireworkInterval;
 
 function startFireworks(){
 
     createFirework();
 
-    fireworkInterval=setInterval(()=>{
+    fireworkInterval = setInterval(()=>{
 
         createFirework();
 
-    },800);
+    },700);
 
 }
-
-/* -----------------------
-      STOP FIREWORKS
------------------------ */
 
 function stopFireworks(){
 
@@ -985,13 +759,13 @@ function stopFireworks(){
 
 }
 
-/* -----------------------
-      HEART RAIN
------------------------ */
+/* ===========================
+HEART RAIN
+=========================== */
 
 function startHeartRain(){
 
-    const interval=setInterval(()=>{
+    const interval = setInterval(()=>{
 
         if(!screens.final.classList.contains("active")){
 
@@ -1001,16 +775,18 @@ function startHeartRain(){
 
         }
 
-        const heart=document.createElement("div");
+        const heart =
+        document.createElement("div");
 
         heart.className="heartRain";
 
         heart.innerHTML="❤️";
 
-        heart.style.left=Math.random()*100+"vw";
+        heart.style.left=
+        Math.random()*100+"vw";
 
         heart.style.fontSize=
-        (18+Math.random()*35)+"px";
+        (18+Math.random()*30)+"px";
 
         document.body.appendChild(heart);
 
@@ -1024,13 +800,13 @@ function startHeartRain(){
 
 }
 
-/* -----------------------
-      STAR SHOWER
------------------------ */
+/* ===========================
+STAR SHOWER
+=========================== */
 
 function startStars(){
 
-    const interval=setInterval(()=>{
+    const interval = setInterval(()=>{
 
         if(!screens.final.classList.contains("active")){
 
@@ -1040,15 +816,15 @@ function startStars(){
 
         }
 
-        const star=document.createElement("div");
+        const star =
+        document.createElement("div");
 
         star.className="starParticle";
 
         star.innerHTML="✨";
 
-        star.style.left=Math.random()*100+"vw";
-
-        star.style.top="-50px";
+        star.style.left=
+        Math.random()*100+"vw";
 
         document.body.appendChild(star);
 
@@ -1062,13 +838,13 @@ function startStars(){
 
 }
 
-/* -----------------------
-      ROSE PETALS
------------------------ */
+/* ===========================
+ROSE RAIN
+=========================== */
 
-function roseRain(){
+function startRoseRain(){
 
-    const interval=setInterval(()=>{
+    const interval = setInterval(()=>{
 
         if(!screens.final.classList.contains("active")){
 
@@ -1078,13 +854,15 @@ function roseRain(){
 
         }
 
-        const rose=document.createElement("div");
+        const rose =
+        document.createElement("div");
 
         rose.className="roseRain";
 
         rose.innerHTML="🌹";
 
-        rose.style.left=Math.random()*100+"vw";
+        rose.style.left=
+        Math.random()*100+"vw";
 
         document.body.appendChild(rose);
 
@@ -1098,37 +876,9 @@ function roseRain(){
 
 }
 
-/* -----------------------
-      FINAL MESSAGE
------------------------ */
-
-const finalMessage=document.querySelector("#finalScreen p");
-
-const extraText=`
-
-❤️
-
-I wish every day of your life
-is filled with happiness,
-success,
-good health,
-beautiful memories
-and endless smiles.
-
-You deserve every happiness
-in this world.
-
-Happy Birthday My Dear Diksha ❤️`;
-
-if(finalMessage){
-
-finalMessage.innerHTML+=extraText;
-
-}
-
-/* -----------------------
-      START FINAL EFFECTS
------------------------ */
+/* ===========================
+FINAL EFFECTS
+=========================== */
 
 function launchFinalEffects(){
 
@@ -1138,33 +888,23 @@ function launchFinalEffects(){
 
     startStars();
 
-    roseRain();
+    startRoseRain();
 
 }
 
-/* -----------------------
-      UPDATE FINISH BUTTON
------------------------ */
+/* ===========================
+REPLAY BUTTON
+=========================== */
 
-fireworkBtn.addEventListener("click",()=>{
+const replayButton =
+document.createElement("button");
 
-    showScreen(screens.final);
+replayButton.innerHTML =
+"❤️ Replay Surprise";
 
-    launchFinalEffects();
+replayButton.style.marginTop="40px";
 
-});
-
-/* -----------------------
-      RESTART
------------------------ */
-
-const restart=document.createElement("button");
-
-restart.innerHTML="❤️ Replay Surprise";
-
-restart.style.marginTop="35px";
-
-restart.onclick=()=>{
+replayButton.onclick=()=>{
 
     stopFireworks();
 
@@ -1172,53 +912,124 @@ restart.onclick=()=>{
 
 };
 
-document.querySelector("#finalScreen .glass")
-.appendChild(restart);
+const finalCard =
+document.querySelector("#finalScreen .glass");
 
-/* -----------------------
-      AUTO MUSIC
------------------------ */
+if(finalCard){
 
-document.addEventListener("click",()=>{
-
-    bgMusic.play().catch(()=>{});
-
-},{once:true});
-
-/* -----------------------
-      END
------------------------ */
-
-console.log("❤️ Happy Birthday Diksha Website Loaded Successfully ❤️");
-/*==========================
-REAL FLOATING HEARTS
-==========================*/
-
-function createHeart(){
-
-const heart=document.createElement("div");
-
-heart.className="heart";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.animationDuration=
-(6+Math.random()*6)+"s";
-
-heart.style.opacity=
-0.3+Math.random()*0.7;
-
-heart.style.transform=
-`scale(${0.5+Math.random()*1.2}) rotate(45deg)`;
-
-document.getElementById("hearts").appendChild(heart);
-
-setTimeout(()=>{
-
-heart.remove();
-
-},12000);
+    finalCard.appendChild(replayButton);
 
 }
 
-setInterval(createHeart,300);
+/* ===========================
+AUTO PLAY MUSIC
+=========================== */
+
+document.addEventListener("click",()=>{
+
+    if(bgMusic){
+
+        bgMusic.play().catch(()=>{});
+
+    }
+
+},{once:true});
+
+/* ===========================
+BACKGROUND EFFECTS
+=========================== */
+
+setInterval(()=>{
+
+    const container =
+    document.getElementById("hearts");
+
+    if(!container) return;
+
+    const heart =
+    document.createElement("div");
+
+    heart.className="heart";
+
+    heart.style.left=
+    Math.random()*100+"vw";
+
+    heart.style.animationDuration=
+    (6+Math.random()*5)+"s";
+
+    container.appendChild(heart);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },12000);
+
+},350);
+
+/* Sparkles */
+
+setInterval(()=>{
+
+    const container =
+    document.getElementById("sparkles");
+
+    if(!container) return;
+
+    const sparkle =
+    document.createElement("div");
+
+    sparkle.className="sparkle";
+
+    sparkle.style.left=
+    Math.random()*100+"vw";
+
+    sparkle.style.top=
+    Math.random()*100+"vh";
+
+    sparkle.style.animationDuration=
+    (2+Math.random()*3)+"s";
+
+    container.appendChild(sparkle);
+
+    setTimeout(()=>{
+
+        sparkle.remove();
+
+    },5000);
+
+},250);
+
+/* Petals */
+
+setInterval(()=>{
+
+    const container =
+    document.getElementById("petals");
+
+    if(!container) return;
+
+    const petal =
+    document.createElement("div");
+
+    petal.className="petal";
+
+    petal.style.left=
+    Math.random()*100+"vw";
+
+    petal.style.animationDuration=
+    (8+Math.random()*5)+"s";
+
+    container.appendChild(petal);
+
+    setTimeout(()=>{
+
+        petal.remove();
+
+    },14000);
+
+},900);
+
+console.log("❤️ Happy Birthday Diksha Website Loaded Successfully ❤️");
+
+console.log("❤️ Script Part 1 Loaded");

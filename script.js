@@ -75,11 +75,7 @@ continueJourney.addEventListener("click",()=>{
 
     loadQuestion();
 
-}); else{
 
-        showScreen(phoneScreen);
-
-    }
 
 });
 

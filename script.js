@@ -1,45 +1,93 @@
-document.getElementById("start").addEventListener("click", function () {
+const questions = [
+"❤️ Will you stay with me until the end of this surprise?",
+"😊 What was your first impression of me?",
+"🥰 What's your favorite memory with me?",
+"💖 What is one thing about me that always makes you smile?",
+"🌍 If we could travel anywhere together, where would you go?",
+"💌 What's one thing you've always wanted to tell me?",
+"🌙 Would you rather watch the stars or sunrise with me?",
+"🌸 What's your favorite thing about us?",
+"🎵 Which song reminds you of us?",
+"❤️ When you miss me, what do you miss the most?",
+"✨ What's your dream date with me?",
+"💕 Do you believe we were meant to meet?",
+"🤗 Will you keep making memories with me?",
+"♾️ How much do you love me?",
+"🎁 Are you ready for your Birthday Surprise?"
+];
+
+let current = 0;
+
+document.getElementById("start").onclick = showQuestion;
+
+function showQuestion(){
+
+renderQuestion();
+
+}
+
+function renderQuestion(){
 
 document.body.innerHTML = `
 
-<div style="
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ff4d6d,#ff8fab);
-font-family:Poppins,sans-serif;
-color:white;
-flex-direction:column;
-text-align:center;
-">
+<div class="quiz">
 
-<h1 style="font-size:50px;">❤️ Question 1 of 15 ❤️</h1>
+<h1>Question ${current+1} of ${questions.length}</h1>
 
-<p style="font-size:28px;margin-top:20px;">
-Will you stay with me until the end of this surprise?
-</p>
+<p>${questions[current]}</p>
 
-<button id="nextBtn" style="
-margin-top:40px;
-padding:18px 40px;
-font-size:22px;
-border:none;
-border-radius:50px;
-cursor:pointer;
-background:white;
-color:#ff4d6d;
-font-weight:bold;
-">
-❤️ I Promise
+<button id="next">
+${current==questions.length-1 ? "🎉 Show Surprise" : "Next ❤️"}
 </button>
 
 </div>
 
 `;
 
-document.getElementById("nextBtn").addEventListener("click", function () {
-    alert("Perfect! Now we'll move to Question 2.");
-});
+document.getElementById("next").onclick=()=>{
 
-});
+current++;
+
+if(current<questions.length){
+
+renderQuestion();
+
+}else{
+
+showBirthday();
+
+}
+
+}
+
+}
+
+function showBirthday(){
+
+document.body.innerHTML=`
+
+<div class="birthday">
+
+<h1>🎉 HAPPY BIRTHDAY 🎉</h1>
+
+<h2>Diksha ❤️</h2>
+
+<p>
+
+You completed the Love Journey.
+
+Now your real surprise begins...
+
+</p>
+
+<button id="continue">
+
+Continue ❤️
+
+</button>
+
+</div>
+
+`;
+
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Surprise ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:linear-gradient(135deg,#ff6fa5,#ff9a8b);
+
+overflow:hidden;
+
+}
+
+.container{
+
+text-align:center;
+
+color:white;
+
+animation:fade 1.5s;
+
+}
+
+h1{
+
+font-size:60px;
+
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:24px;
+
+margin-bottom:50px;
+
+}
+
+button{
+
+padding:18px 55px;
+
+font-size:24px;
+
+border:none;
+
+border-radius:50px;
+
+background:white;
+
+color:#ff4f81;
+
+cursor:pointer;
+
+transition:.3s;
+
+font-weight:bold;
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎉 A Special Surprise</h1>
+
+<p>Someone created something magical just for you ❤️</p>
+
+<button onclick="nextScreen()">Begin →</button>
+
+</div>
+
+<script>
+
+function nextScreen(){
+
+document.body.innerHTML=`
+
+<div style="
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:black;
+
+color:white;
+
+font-size:40px;
+
+">
+
+📱 Phone Screen Coming Next...
+
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>

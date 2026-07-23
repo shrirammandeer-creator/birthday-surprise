@@ -1,7 +1,22 @@
-/* Birthday Surprise Styles */
+document.getElementById("startBtn").onclick=function(){
 
-body{
-    margin:0;
-    padding:0;
-    background:#111;
-}
+document.body.innerHTML=`
+
+<div style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#111;
+color:white;
+font-size:38px;
+font-family:Segoe UI;
+">
+
+📱 Loading Phone...
+
+</div>
+
+`;
+
+};

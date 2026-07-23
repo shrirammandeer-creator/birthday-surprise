@@ -2,6 +2,8 @@
 // SCREEN REFERENCES
 // =========================
 
+const birthdayScreen = document.getElementById("birthdayScreen");
+const cakeBtn = document.getElementById("cakeBtn");
 const phoneScreen = document.getElementById("phoneScreen");
 const acceptCall = document.getElementById("acceptCall");
 const declineCall = document.getElementById("declineCall");

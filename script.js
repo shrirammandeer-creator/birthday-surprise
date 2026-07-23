@@ -122,7 +122,9 @@ const quizData = [
 
 ];
 
-let currentQuestion = 0; function loadQuestion(){
+let currentQuestion = 0;
+
+function loadQuestion(){
 
     let q = quizData[currentQuestion];
 
@@ -163,7 +165,9 @@ let currentQuestion = 0; function loadQuestion(){
 
 const questionText = document.getElementById("questionText");
 const questionNumber = document.getElementById("questionNumber");
-const options = document.getElementById("options");acceptCall.addEventListener("click",()=>{
+const options = document.getElementById("options");
+
+acceptCall.addEventListener("click",()=>{ ("click",()=>{
 
     showScreen(birthdayScreen);
 

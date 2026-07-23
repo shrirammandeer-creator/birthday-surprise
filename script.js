@@ -1190,3 +1190,35 @@ document.addEventListener("click",()=>{
 ----------------------- */
 
 console.log("❤️ Happy Birthday Diksha Website Loaded Successfully ❤️");
+/*==========================
+REAL FLOATING HEARTS
+==========================*/
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(6+Math.random()*6)+"s";
+
+heart.style.opacity=
+0.3+Math.random()*0.7;
+
+heart.style.transform=
+`scale(${0.5+Math.random()*1.2}) rotate(45deg)`;
+
+document.getElementById("hearts").appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},12000);
+
+}
+
+setInterval(createHeart,300);

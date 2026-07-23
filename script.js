@@ -73,7 +73,7 @@ continueJourney.addEventListener("click",()=>{
 
 }); else{
 
-        alert("🎉 Quiz Completed!");
+        showScreen(phoneScreen);
 
     }
 
@@ -145,4 +145,14 @@ let currentQuestion = 0; function loadQuestion(){
 
 const questionText = document.getElementById("questionText");
 const questionNumber = document.getElementById("questionNumber");
-const options = document.getElementById("options");
+const options = document.getElementById("options"); acceptCall.addEventListener("click",()=>{
+
+    alert("❤️ Happy Birthday Diksha ❤️");
+
+});
+
+declineCall.addEventListener("click",()=>{
+
+    alert("😂 Sorry! You have to accept the call.");
+
+});

@@ -236,4 +236,30 @@ height:100%;
 
 overflow:hidden;
 
+} /* ===========================
+   QUIZ
+=========================== */
+
+#options{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+margin-top:25px;
+
+}
+
+.option{
+
+width:100%;
+
+}
+
+#nextQuestion{
+
+margin-top:25px;
+
 }

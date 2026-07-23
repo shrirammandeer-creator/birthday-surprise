@@ -290,4 +290,38 @@ background:#28a745;
 
 background:#dc3545;
 
+} /* ===========================
+   BIRTHDAY SCREEN
+=========================== */
+
+.cakeEmoji{
+
+    font-size:120px;
+
+    margin:30px 0;
+
+    animation:bounceCake 2s infinite;
+
+}
+
+@keyframes bounceCake{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-15px);
+
+}
+
+}
+
+#cakeBtn{
+
+background:#ff9800;
+
 }

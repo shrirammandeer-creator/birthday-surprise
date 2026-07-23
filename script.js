@@ -1,160 +1,491 @@
-const questions = [
-{
-question:"❤️ Before we start... Will you stay with me until the end? 🥺",
-options:["❤️ Always","💖 Forever","😘 I'm not going anywhere"],
-reply:"Aww... I knew I could count on you! ❤️"
-},
-{
-question:"😏 Who is more obsessed with the other?",
-options:["😘 You","❤️ Me","💕 Both equally"],
-reply:"I think the correct answer is 'Both'! 😄"
-},
-{
-question:"🤭 If I suddenly appeared in front of you right now... what would you do?",
-options:["🤗 Hug You","😘 Kiss You","❤️ Never Let You Go"],
-reply:"That's exactly what I was hoping for! ❤️"
-},
-{
-question:"👀 What's the first thing you notice about me?",
-options:["😊 Smile","❤️ Eyes","🥰 Everything"],
-reply:"You're making me blush! 😍"
-},
-{
-question:"😂 Who's more stubborn?",
-options:["😅 You","😜 Me","🤝 Both"],
-reply:"Let's call it a draw! 😂"
-},
-{
-question:"🌹 If we had a whole day together, what would you choose?",
-options:["🍿 Movie Date","🌅 Long Drive","❤️ Just Spend Time Together"],
-reply:"Every option sounds perfect with you. ❤️"
-},
-{
-question:"😜 How jealous do you get when someone flirts with me?",
-options:["😇 Not at all","😏 A little","😤 Very much"],
-reply:"I'll take that as proof you care. ❤️"
-},
-{
-question:"💕 What's your favorite thing about us?",
-options:["❤️ Trust","😊 Laughter","🥰 Everything"],
-reply:"That's what makes us special."
-},
-{
-question:"🤗 If I asked for one hug...",
-options:["❤️ One","🤭 Two","♾️ Unlimited"],
-reply:"Unlimited hugs accepted! 🤗❤️"
-},
-{
-question:"😍 Choose a nickname for me.",
-options:["❤️ Baby","😘 Jaan","🥰 My Love"],
-reply:"I love the sound of that. ❤️"
-},
-{
-question:"🌙 What's our perfect date?",
-options:["🌅 Sunset Walk","🍽️ Candlelight Dinner","🎡 Long Drive"],
-reply:"Let's make it happen someday."
-},
-{
-question:"📸 If we took a selfie together...",
-options:["😊 Cute Smile","😘 Funny Face","❤️ Forehead Touch"],
-reply:"That photo would be my favorite."
-},
-{
-question:"❤️ You make me feel...",
-options:["😊 Happy","🥰 Safe","💖 Loved"],
-reply:"That's the sweetest answer."
-},
-{
-question:"😏 How much do you love me?",
-options:["❤️ A Lot","💖 More Every Day","♾️ Infinity"],
-reply:"Infinity sounds perfect! ❤️"
-},
-{
-question:"🎂 Ready for your Birthday Surprise?",
-options:["🎉 Yes!","❤️ Absolutely!","🥳 Let's Go!"],
-reply:"Then let the magic begin... ✨"
-}
-];
+/*==================================================
+    HAPPY BIRTHDAY DIKSHA ❤️
+    SCRIPT.JS - PART 1
+==================================================*/
 
-let current = 0;
+/* -----------------------
+   SCREEN REFERENCES
+----------------------- */
 
-document.getElementById("start").onclick = () => {
-    showQuestion();
+const screens = {
+    loading: document.getElementById("loadingScreen"),
+    welcome: document.getElementById("welcomeScreen"),
+    quiz: document.getElementById("quizScreen"),
+    phone: document.getElementById("phoneScreen"),
+    birthday: document.getElementById("birthdayScreen"),
+    cake: document.getElementById("cakeScreen"),
+    gift: document.getElementById("giftScreen"),
+    letter: document.getElementById("letterScreen"),
+    final: document.getElementById("finalScreen")
 };
 
-function showQuestion(){
+/* -----------------------
+   BUTTONS
+----------------------- */
 
-const q = questions[current];
+const startBtn = document.getElementById("startJourney");
+const acceptCall = document.getElementById("acceptCall");
+const declineCall = document.getElementById("declineCall");
 
-document.body.innerHTML = `
-<div class="quiz">
+const cakeBtn = document.getElementById("cakeBtn");
+const giftBtn = document.getElementById("giftBtn");
+const letterBtn = document.getElementById("letterBtn");
+const fireworkBtn = document.getElementById("fireworkBtn");
 
-<h2>Question ${current+1} / ${questions.length}</h2>
+/* -----------------------
+   QUIZ ELEMENTS
+----------------------- */
 
-<h1>${q.question}</h1>
+const questionText = document.getElementById("questionText");
+const questionNumber = document.getElementById("questionNumber");
+const options = document.getElementById("options");
+const progressBar = document.getElementById("progressBar");
+const replyBox = document.getElementById("replyBox");
 
-<div class="options">
-<button onclick="choose(0)">${q.options[0]}</button>
-<button onclick="choose(1)">${q.options[1]}</button>
-<button onclick="choose(2)">${q.options[2]}</button>
-</div>
+/* -----------------------
+   MUSIC
+----------------------- */
 
-<p id="reply"></p>
+const bgMusic = document.getElementById("bgMusic");
 
-</div>
-`;
+/* -----------------------
+   VARIABLES
+----------------------- */
+
+let currentQuestion = 0;
+let score = 0;
+
+/* -----------------------
+   SCREEN FUNCTION
+----------------------- */
+
+function showScreen(screen){
+
+    Object.values(screens).forEach(s=>{
+
+        s.classList.remove("active");
+
+    });
+
+    screen.classList.add("active");
+
+}
+
+/* -----------------------
+   LOADING SCREEN
+----------------------- */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        showScreen(screens.welcome);
+
+    },3500);
+
+});
+
+/* -----------------------
+   START JOURNEY
+----------------------- */
+
+startBtn.addEventListener("click",()=>{
+
+    bgMusic.play().catch(()=>{});
+
+    currentQuestion=0;
+
+    score=0;
+
+    loadQuestion();
+
+    showScreen(screens.quiz);
+
+});
+
+/* -----------------------
+   QUESTIONS
+----------------------- */
+
+/*==================================================
+    SCRIPT.JS - PART 2
+    Romantic Questions + Quiz Upgrade
+==================================================*/
+
+const questions = [
+
+{
+    question:"❤️ Who is the most beautiful girl in my world?",
+    options:[
+        "Diksha ❤️",
+        "Someone else",
+        "I don't know",
+        "Maybe me 😄"
+    ],
+    correct:0
+},
+
+{
+    question:"💕 If we could go anywhere together, where should we go?",
+    options:[
+        "Beach",
+        "Mountains",
+        "Anywhere together ❤️",
+        "Shopping Mall"
+    ],
+    correct:2
+},
+
+{
+    question:"🥰 What makes love stronger?",
+    options:[
+        "Trust",
+        "Care",
+        "Respect",
+        "All of these ❤️"
+    ],
+    correct:3
+},
+
+{
+    question:"😘 Which emoji describes us the best?",
+    options:[
+        "❤️",
+        "💕",
+        "💖",
+        "All of them"
+    ],
+    correct:3
+},
+
+{
+    question:"🎵 Which song should always remind us of each other?",
+    options:[
+        "Romantic Song",
+        "Happy Song",
+        "Our Favorite Song ❤️",
+        "Dance Song"
+    ],
+    correct:2
+},
+
+{
+    question:"🌹 What should I give you every single day?",
+    options:[
+        "Flowers",
+        "Chocolate",
+        "Love ❤️",
+        "Everything"
+    ],
+    correct:2
+},
+
+{
+    question:"💌 What is the most valuable gift?",
+    options:[
+        "Money",
+        "Jewelry",
+        "Time & Love ❤️",
+        "Phone"
+    ],
+    correct:2
+},
+
+{
+    question:"😊 Who always makes me smile?",
+    options:[
+        "Diksha ❤️",
+        "Friends",
+        "Movies",
+        "Nobody"
+    ],
+    correct:0
+},
+
+{
+    question:"🌈 Our relationship should always be filled with...",
+    options:[
+        "Arguments",
+        "Trust",
+        "Happiness",
+        "Trust + Happiness + Love ❤️"
+    ],
+    correct:3
+},
+
+{
+    question:"🎂 Whose birthday is the most special today?",
+    options:[
+        "Diksha ❤️",
+        "Mine",
+        "Everyone",
+        "Nobody"
+    ],
+    correct:0
+},
+
+{
+    question:"💖 What do I love the most?",
+    options:[
+        "Pizza 🍕",
+        "Gaming 🎮",
+        "Diksha ❤️",
+        "Sleeping 😴"
+    ],
+    correct:2
+},
+
+{
+    question:"🌙 If I make one wish tonight...",
+    options:[
+        "More Money",
+        "New Phone",
+        "Your Happiness ❤️",
+        "Vacation"
+    ],
+    correct:2
+},
+
+{
+    question:"🎁 What's inside today's surprise?",
+    options:[
+        "Love ❤️",
+        "Happiness",
+        "Memories",
+        "All of these"
+    ],
+    correct:3
+},
+
+{
+    question:"💍 Which promise should last forever?",
+    options:[
+        "Always Support",
+        "Always Care",
+        "Always Love",
+        "All Forever ❤️"
+    ],
+    correct:3
+},
+
+{
+    question:"❤️ Ready to see your birthday surprise?",
+    options:[
+        "YES ❤️",
+        "Absolutely ❤️",
+        "Can't Wait ❤️",
+        "Let's Go ❤️"
+    ],
+    correct:0
+];
+
+{
+question:"When did we first start talking? ❤️",
+options:[
+"Our first chat",
+"Yesterday 😂",
+"I don't remember",
+"Never"
+],
+correct:0
+},
+
+{
+question:"Who is the cutest? 😘",
+options:[
+"You ❤️",
+"Me 😎",
+"Both",
+"Our future pet"
+],
+correct:0
+},
+
+{
+question:"What makes our bond special? 💖",
+options:[
+"Love",
+"Trust",
+"Care",
+"All of these"
+],
+correct:3
+},
+
+{
+question:"If we travel together, where should we go first? ✈️",
+options:[
+"Mountains",
+"Beach",
+"Anywhere together ❤️",
+"Paris"
+],
+correct:2
+},
+
+{
+question:"What's the best birthday gift? 🎁",
+options:[
+"Money",
+"Flowers",
+"Love ❤️",
+"Chocolate"
+],
+correct:2
+},
+
+{
+question:"Who makes me smile the most? 😊",
+options:[
+"Diksha ❤️",
+"Myself",
+"My phone",
+"Nobody"
+],
+correct:0
+},
+
+{
+question:"Our favorite thing to do? 💕",
+options:[
+"Talk",
+"Travel",
+"Laugh",
+"Everything together"
+],
+correct:3
+},
+
+{
+question:"Which emoji suits us? ❤️",
+options:[
+"❤️",
+"💕",
+"💖",
+"All"
+],
+correct:3
+},
+
+{
+question:"What should never end?",
+options:[
+"Our memories",
+"Our love",
+"Our friendship",
+"All"
+],
+correct:3
+},
+
+{
+question:"Today's queen is... 👑",
+options:[
+"Diksha ❤️",
+"Diksha ❤️",
+"Diksha ❤️",
+"Obviously Diksha ❤️"
+],
+correct:3
+},
+
+{
+question:"Ready for the birthday surprise?",
+options:[
+"YES ❤️",
+"Absolutely ❤️",
+"Let's Go ❤️",
+"Can't Wait ❤️"
+],
+correct:0
+}
+
+];
+
+/* -----------------------
+   LOAD QUESTION
+----------------------- */
+
+function loadQuestion(){
+
+    const q=questions[currentQuestion];
+
+    questionText.innerHTML=q.question;
+
+    questionNumber.innerHTML=`Question ${currentQuestion+1} / ${questions.length}`;
+
+    progressBar.style.width=((currentQuestion)/questions.length)*100+"%";
+
+    options.innerHTML="";
+
+    q.options.forEach((option,index)=>{
+
+        const btn=document.createElement("button");
+
+        btn.className="option";
+
+        btn.innerHTML=option;
+
+        btn.onclick=()=>selectAnswer(index);
+
+        options.appendChild(btn);
+
+    });
 
 }
 
-function choose(){
+/* -----------------------
+   SELECT ANSWER
+----------------------- */
 
-document.getElementById("reply").innerHTML =
-questions[current].reply;
+function selectAnswer(index){
 
-setTimeout(()=>{
+    if(index===questions[currentQuestion].correct){
 
-current++;
+        score++;
 
-if(current<questions.length){
+        replyBox.innerHTML="❤️ Correct!";
 
-showQuestion();
+    }else{
 
-}else{
+        replyBox.innerHTML="😊 Nice Try";
 
-showBirthday();
+    }
 
-}
+    setTimeout(()=>{
 
-},1800);
+        replyBox.innerHTML="";
 
-}
+        currentQuestion++;
 
-function showBirthday(){
+        if(currentQuestion<questions.length){
 
-document.body.innerHTML=`
+            loadQuestion();
 
-<div class="birthday">
+        }else{
 
-<h1>🎉 Happy Birthday 🎉</h1>
+            progressBar.style.width="100%";
 
-<h2>Diksha ❤️</h2>
+            showScreen(screens.phone);
 
-<p>
+        }
 
-You completed my little Love Journey ❤️
-
-Now your real surprise is about to begin...
-
-</p>
-
-<button onclick="alert('Next Step: iPhone Incoming Call 📱')">
-
-Continue ❤️
-
-</button>
-
-</div>
-
-`;
+    },1200);
 
 }
+
+/* -----------------------
+   PHONE SCREEN
+----------------------- */
+
+acceptCall.addEventListener("click",()=>{
+
+    showScreen(screens.birthday);
+
+});
+
+declineCall.addEventListener("click",()=>{
+
+    alert("No no 😄... You have to answer the birthday call!");
+
+});

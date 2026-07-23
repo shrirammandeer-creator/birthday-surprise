@@ -156,4 +156,8 @@ declineCall.addEventListener("click",()=>{
 
     alert("😂 Sorry! You have to accept the call.");
 
+}); cakeBtn.addEventListener("click",()=>{
+
+    alert("🎂 Cake Cut Successfully! ❤️");
+
 });

@@ -412,4 +412,14 @@ setInterval(()=>{
 
     }
 
-},1500); 
+},1500); const music = document.getElementById("bgMusic");
+
+document.body.addEventListener("click", () => {
+
+    if (music && music.paused) {
+
+        music.play().catch(() => {});
+
+    }
+
+}, { once: true });

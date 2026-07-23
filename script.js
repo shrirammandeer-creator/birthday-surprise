@@ -54,7 +54,11 @@ startButton.addEventListener("click",()=>{
 
 continueJourney.addEventListener("click",()=>{
 
-    showScreen(quizScreen);
+    showScreen(quizScreen); nextQuestion.addEventListener("click",()=>{
+
+    alert("🎉 Quiz Working!");
+
+});
 
 });
 });

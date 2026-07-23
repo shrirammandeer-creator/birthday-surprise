@@ -2,6 +2,8 @@
 // SCREEN REFERENCES
 // =========================
 
+const quizScreen = document.getElementById("quizScreen");
+const nextQuestion = document.getElementById("nextQuestion");
 const loadingScreen = document.getElementById("loadingScreen");
 const welcomeScreen = document.getElementById("welcomeScreen");
 const startButton = document.getElementById("startJourney");
@@ -52,8 +54,9 @@ startButton.addEventListener("click",()=>{
 
 continueJourney.addEventListener("click",()=>{
 
-    alert("✅ Intro Screen Working Successfully!");
+    showScreen(quizScreen);
 
+});
 });
 
 });

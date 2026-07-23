@@ -160,6 +160,40 @@ declineCall.addEventListener("click",()=>{
 
 }); cakeBtn.addEventListener("click",()=>{
 
-    alert("🎂 Cake Cut Successfully! ❤️");
+    cake.classList.add("cutCake");
 
-});
+    cake.innerHTML="🍰";
+
+    cakeMessage.innerHTML="🎉 Happy Birthday Diksha ❤️";
+
+    createConfetti();
+
+}); function createConfetti(){
+
+    for(let i=0;i<80;i++){
+
+        const c=document.createElement("div");
+
+        c.className="confetti";
+
+        c.style.left=Math.random()*100+"vw";
+
+        c.style.background=
+
+        `hsl(${Math.random()*360},100%,50%)`;
+
+        c.style.animationDuration=
+
+        (2+Math.random()*2)+"s";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+
+            c.remove();
+
+        },4000);
+
+    }
+
+}

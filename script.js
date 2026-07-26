@@ -169,7 +169,7 @@ const questionText = document.getElementById("questionText");
 const questionNumber = document.getElementById("questionNumber");
 const options = document.getElementById("options");
 
-acceptCall.addEventListener("click",()=>{ ("click",()=>{
+acceptCall.addEventListener("click",()=>{("click",()=>{ ("click",()=>{
 
     showScreen(birthdayScreen);
 

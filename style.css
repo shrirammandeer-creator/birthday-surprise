@@ -236,4 +236,104 @@ body{
     margin-bottom:25px;
 
 }
+/* ===========================
+   BUTTONS
+=========================== */
+
+button{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff5fa2,#ff9800);
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-top:15px;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+} 
+/* ===========================
+   LOADING SCREEN
+=========================== */
+
+.loader{
+
+    font-size:80px;
+
+    animation:pulse 1.2s infinite;
+
+    margin:25px 0;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+} 
+/* ===========================
+   WELCOME SCREEN
+=========================== */
+
+#welcomeScreen h1{
+
+    color:#ffffff;
+
+}
+
+#welcomeScreen p{
+
+    color:#ffe7f4;
+
+}
+
+#startJourney{
+
+    margin-top:25px;
+
+}   
+   
 }

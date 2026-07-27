@@ -55,19 +55,7 @@ function loadQuestion(){
 
     options.innerHTML = "";
 
-    q.answers.forEach((answer,index)=>{
 
-        const btn = document.createElement("button");
-
-        btn.className = "option";
-
-        btn.innerHTML = answer;
-
-        btn.onclick = ()=>checkAnswer(index);
-
-        options.appendChild(btn);
-
-    });
 
 }
 

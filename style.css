@@ -60,17 +60,18 @@ body{
 .screen{
 
     width:100%;
+    min-height:100vh;
 
-    height:100%;
+    display:none;
 
-    position:absolute;
+    justify-content:center;
+    align-items:center;
 
-    top:0;
+    padding:20px;
 
-    left:0;
+    box-sizing:border-box;
 
 }
-
 /* Desktop */
 
 @media (min-width:768px){
@@ -124,7 +125,9 @@ transform:scale(.88);
 
 .screen.active{
 
-    opacity:1;
+    display:flex;
+
+}
 
     visibility:visible;
 
@@ -134,23 +137,18 @@ transform:scale(.88);
    GLASS CARD
 =========================== */
 
-.glass{
+   .glass{
 
-    width:min(700px,90vw);
+    width:100%;
+    max-width:420px;
 
-    padding:45px;
+    padding:30px 20px;
 
     border-radius:25px;
 
-    background:rgba(255,255,255,.12);
-
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.2);
-
     text-align:center;
 
-    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    box-sizing:border-box;
 
 }
 
@@ -466,6 +464,41 @@ to{
 transform:translateY(110vh) rotate(720deg);
 
 opacity:0;
+
+} 
+   @media (max-width:768px){
+
+.glass{
+
+    width:95%;
+
+    padding:25px 18px;
+
+}
+
+h1{
+
+    font-size:34px;
+
+}
+
+h2{
+
+    font-size:26px;
+
+}
+
+p{
+
+    font-size:16px;
+
+}
+
+button{
+
+    width:100%;
+
+}
 
 }
 

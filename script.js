@@ -1,5 +1,6 @@
-// ========================= // SCREEN REFERENCES //
-=========================
+// =========================
+// SCREEN REFERENCES
+// =========================
 
 const loadingScreen = document.getElementById(“loadingScreen”); const
 welcomeScreen = document.getElementById(“welcomeScreen”); const

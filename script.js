@@ -172,3 +172,76 @@ nextQuestion.addEventListener("click",()=>{
     }
 
 });
+// =========================
+// FINAL FLOW
+// =========================
+
+const acceptCall = document.getElementById("acceptCall");
+const declineCall = document.getElementById("declineCall");
+
+const cakeBtn = document.getElementById("cakeBtn");
+const cake = document.getElementById("cake");
+const cakeMessage = document.getElementById("cakeMessage");
+
+const openGift = document.getElementById("openGift");
+const showFinal = document.getElementById("showFinal");
+const restartJourney = document.getElementById("restartJourney");
+
+
+// Accept Call
+acceptCall.addEventListener("click",()=>{
+
+    showScreen(birthdayScreen);
+
+});
+
+
+// Decline Call
+declineCall.addEventListener("click",()=>{
+
+    alert("😄 Nice try! You must accept the call first.");
+
+});
+
+
+// Cake
+cakeBtn.addEventListener("click",()=>{
+
+    cake.innerHTML="🍰";
+
+    cakeMessage.innerHTML=
+    "<h2>🎉 Happy Birthday Diksha ❤️ 🎉</h2>";
+
+    setTimeout(()=>{
+
+        showScreen(giftScreen);
+
+    },2500);
+
+});
+
+
+// Gift
+openGift.addEventListener("click",()=>{
+
+    showScreen(letterScreen);
+
+});
+
+
+// Letter
+showFinal.addEventListener("click",()=>{
+
+    showScreen(finalScreen);
+
+});
+
+
+// Restart
+restartJourney.addEventListener("click",()=>{
+
+    currentQuestion=0;
+
+    showScreen(welcomeScreen);
+
+});

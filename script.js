@@ -2,28 +2,24 @@
 // SCREEN REFERENCES
 // =========================
 
-const loadingScreen = document.getElementById("loadingScreen"); const
-welcomeScreen = document.getElementById("welcomeScreen"); const
-introScreen = document.getElementById("introScreen"); const quizScreen =
-document.getElementById("quizScreen"); const phoneScreen =
-document.getElementById("phoneScreen"); const birthdayScreen =
-document.getElementById("birthdayScreen");
-
-const startButton = document.getElementById("startJourney"); const
-continueJourney = document.getElementById("continueJourney"); const
-nextQuestion = document.getElementById("nextQuestion"); const acceptCall
-= document.getElementById("acceptCall"); const declineCall =
-document.getElementById("declineCall"); const cakeBtn =
-document.getElementById("cakeBtn");
-
-const bgMusic = document.getElementById("bgMusic"); const cake =
-document.getElementById("cake"); const cakeMessage =
-document.getElementById("cakeMessage");
-
-const questionText = document.getElementById("questionText"); const
-questionNumber = document.getElementById("questionNumber"); const
-options = document.getElementById("options");
-
+const loadingScreen = document.getElementById("loadingScreen"); 
+const welcomeScreen = document.getElementById("welcomeScreen"); 
+const introScreen = document.getElementById("introScreen"); 
+const quizScreen = document.getElementById("quizScreen"); 
+const phoneScreen = document.getElementById("phoneScreen"); 
+const birthdayScreen = document.getElementById("birthdayScreen");
+const startButton = document.getElementById("startJourney"); 
+const continueJourney = document.getElementById("continueJourney"); 
+const nextQuestion = document.getElementById("nextQuestion"); 
+const acceptCall = document.getElementById("acceptCall"); 
+const declineCall = document.getElementById("declineCall"); 
+const cakeBtn = document.getElementById("cakeBtn");
+const bgMusic = document.getElementById("bgMusic"); 
+const cake = document.getElementById("cake"); 
+const cakeMessage = document.getElementById("cakeMessage");
+const questionText = document.getElementById("questionText"); 
+const questionNumber = document.getElementById("questionNumber"); 
+const options = document.getElementById("options");
 const quizData = [ { question: "Who is the most beautiful girl? ❤️",
 answers: ["Diksha ❤️","Someone Else","Nobody","Don’t Know"], correct: 0
 }, { question: "Who makes me smile everyday? 😊", answers: ["Diksha

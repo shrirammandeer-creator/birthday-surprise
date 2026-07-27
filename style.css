@@ -335,5 +335,146 @@ button:active{
     margin-top:25px;
 
 }   
+/* ===========================
+   INTRO SCREEN
+=========================== */
+
+#introScreen h1{
+
+    font-size:42px;
+
+    color:#ffffff;
+
+    margin-bottom:20px;
+
+}
+
+#introScreen p{
+
+    color:#ffe5f2;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+#continueJourney{
+
+    margin-top:25px;
+
+} 
+/* ===========================
+   QUIZ SCREEN
+=========================== */
+
+#questionNumber{
+
+    font-size:18px;
+
+    color:#ffd2e7;
+
+    margin-bottom:15px;
+
+}
+
+#questionText{
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+    line-height:1.4;
+
+}
+
+#options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.option{
+
+    width:100%;
+
+}
+
+#nextQuestion{
+
+    margin-top:25px;
+
+} 
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+    body{
+
+        padding:12px;
+
+        overflow:auto;
+
+    }
+
+    .glass{
+
+        width:100%;
+
+        max-width:100%;
+
+        max-height:none;
+
+        padding:25px 18px;
+
+    }
+
+    .glass h1{
+
+        font-size:34px;
+
+    }
+
+    .glass h2{
+
+        font-size:24px;
+
+    }
+
+    .glass h3{
+
+        font-size:16px;
+
+    }
+
+    #questionText{
+
+        font-size:24px;
+
+    }
+
+    p{
+
+        font-size:16px;
+
+    }
+
+    button{
+
+        font-size:16px;
+
+        padding:14px;
+
+    }
+
+} 
    
 }

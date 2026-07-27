@@ -574,5 +574,159 @@ button:active{
 
 } 
    
+/* ===========================
+   GIFT BOX
+=========================== */
+
+#giftBox{
+
+    font-size:100px;
+
+    margin:25px 0;
+
+    cursor:pointer;
+
+    transition:transform .3s ease;
+
+    animation:giftShake 2s infinite;
+
+}
+
+#giftBox:hover{
+
+    transform:scale(1.1);
+
+}
+
+@keyframes giftShake{
+
+    0%,100%{
+
+        transform:rotate(0deg);
+
+    }
+
+    25%{
+
+        transform:rotate(-5deg);
+
+    }
+
+    75%{
+
+        transform:rotate(5deg);
+
+    }
+
+} 
+/* ===========================
+   LOVE LETTER
+=========================== */
+
+#letterContent{
+
+    margin-top:20px;
+
+    text-align:left;
+
+    line-height:2;
+
+    color:#fff;
+
+    font-size:18px;
+
+    white-space:pre-line;
+
+}
+
+#letterContent p{
+
+    margin-bottom:15px;
+
+}  
+/* ===========================
+   FINAL SCREEN
+=========================== */
+
+#finalScreen h1{
+
+    font-size:50px;
+
+    margin-bottom:20px;
+
+}
+
+#finalScreen p{
+
+    font-size:20px;
+
+    color:#ffe7f5;
+
+    line-height:1.8;
+
+}
+
+#finalScreen .emoji{
+
+    font-size:70px;
+
+    margin:20px 0;
+
+    animation:celebrate 1.5s infinite;
+
+}
+
+@keyframes celebrate{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.2);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+} 
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff66b3;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+::selection{
+
+    background:#ff66b3;
+
+    color:#fff;
+
+}  
    
 }

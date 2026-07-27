@@ -476,5 +476,103 @@ button:active{
     }
 
 } 
+/* ===========================
+   BIRTHDAY SCREEN
+=========================== */
+
+#birthdayScreen h1{
+
+    font-size:48px;
+
+    color:#ffffff;
+
+    margin-bottom:15px;
+
+    animation:glow 2s infinite alternate;
+
+}
+
+#birthdayScreen h2{
+
+    font-size:30px;
+
+    color:#ffd6ea;
+
+    margin-bottom:25px;
+
+}
+
+#birthdayScreen p{
+
+    font-size:18px;
+
+    color:#fff5fb;
+
+    line-height:1.8;
+
+}
+
+@keyframes glow{
+
+    from{
+
+        text-shadow:
+            0 0 10px #ff66b3,
+            0 0 20px #ff66b3;
+
+    }
+
+    to{
+
+        text-shadow:
+            0 0 20px #ff99cc,
+            0 0 40px #ff99cc,
+            0 0 60px #ff66b3;
+
+    }
+
+}   
+/* ===========================
+   CAKE
+=========================== */
+
+#cake{
+
+    font-size:120px;
+
+    margin:25px 0;
+
+    animation:bounceCake 2s infinite;
+
+}
+
+@keyframes bounceCake{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+#cutCake{
+
+    margin-top:20px;
+
+} 
+   
    
 }

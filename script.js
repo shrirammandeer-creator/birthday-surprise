@@ -2,7 +2,7 @@
 // SCREEN REFERENCES
 // =========================
 
-const loadingScreen = document.getElementById(“loadingScreen”); const
+const loadingScreen = document.getElementById("loadingScreen"); const
 welcomeScreen = document.getElementById(“welcomeScreen”); const
 introScreen = document.getElementById(“introScreen”); const quizScreen =
 document.getElementById(“quizScreen”); const phoneScreen =

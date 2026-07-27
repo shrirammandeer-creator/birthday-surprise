@@ -71,9 +71,7 @@ function loadQuestion(){
 
 }
 
-q.answers.forEach((a,i)=>{ const b = document.createElement("button");
-b.className = "option"; b.innerHTML = a; b.onclick = ()=>checkAnswer(i);
-options.appendChild(b); }); }
+
 
 function checkAnswer(index){
 
